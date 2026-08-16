@@ -1,0 +1,50 @@
+name: Jamovi output mismatch
+description: Report a reproducible mismatch between book instructions and official Jamovi Desktop output.
+title: "Jamovi output mismatch: "
+labels:
+  - jamovi-output
+body:
+  - type: input
+    id: jamovi_version
+    attributes:
+      label: Jamovi version
+      description: Use Help > About or the version shown by your installer.
+    validations:
+      required: true
+  - type: input
+    id: operating_system
+    attributes:
+      label: Operating system
+    validations:
+      required: true
+  - type: input
+    id: book_location
+    attributes:
+      label: Book chapter, page, table, or figure
+    validations:
+      required: true
+  - type: input
+    id: dataset
+    attributes:
+      label: Dataset or file name
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed result
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I used only public synthetic companion files and have not included private data.
+          required: true

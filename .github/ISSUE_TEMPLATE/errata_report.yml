@@ -1,0 +1,38 @@
+name: Errata report
+description: Report a likely correction in the book or public companion files.
+title: "Errata: "
+labels:
+  - errata
+body:
+  - type: input
+    id: book_version
+    attributes:
+      label: Book version or printing
+      description: Use the version, printing, or publication date from your copy if available.
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Chapter, page, table, or figure
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What seems wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction
+    validations:
+      required: false
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I have not included private, identifiable, clinical, institutional, thesis, restricted, or student data.
+          required: true

@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use these public companion materials, please cite the book and this companion repository."
+title: "Psychology Research Methods and Statistics by Design with Jamovi Companion"
+authors:
+  - family-names: "Karlson"
+    given-names: "Nicholas Elliott"
+repository-code: "https://github.com/nicholaskarlson/nekpress-psychology-methods-statistics-jamovi-companion"
+version: "0.1.0"
+date-released: "2026-08-16"
