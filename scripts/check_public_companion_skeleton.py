@@ -40,6 +40,16 @@ REQUIRED_PRIVACY_TOKENS = [
     "clinical",
     "restricted",
 ]
+SKIP_DIRS = {
+    ".git",
+    ".venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
+    "build",
+    "dist",
+}
 
 
 def fail(message: str) -> None:
@@ -54,7 +64,8 @@ if missing:
 for path in ROOT.rglob("*"):
     if not path.is_file():
         continue
-    if "__pycache__" in path.parts:
+    relative_parts = path.relative_to(ROOT).parts
+    if any(part in SKIP_DIRS for part in relative_parts):
         continue
     relative = path.relative_to(ROOT).as_posix()
     if path.suffix.lower() in FORBIDDEN_EXTENSIONS:
