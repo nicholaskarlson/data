@@ -20,7 +20,7 @@ Compare the value with `data/SHA256SUMS`. Windows users without `sha256sum` can 
 - **macOS:** open jamovi Desktop from Applications. If macOS presents a first-launch security prompt, follow Apple’s normal application-opening procedure.
 - **Ubuntu:** open jamovi Desktop from the applications menu. A verified Flatpak installation can also be started with `flatpak run org.jamovi.jamovi`.
 
-The Ubuntu workflow has been exercised with application release 28.2. The Windows and macOS wording below follows the same jamovi Desktop interface but should be treated as release-candidate guidance until representative platform validation is recorded.
+Ubuntu validation is partial: application launch and Study 02 CSV import were observed with application release 28.2, but the representative matrix remains pending. The Windows and macOS wording below follows the same jamovi Desktop interface but should be treated as release-candidate guidance until representative platform validation is recorded.
 
 ## 3. Import a CSV
 

@@ -8,6 +8,7 @@ from pathlib import Path
 
 from release_common import (
     FIGURES,
+    PLATFORM_VALIDATION,
     PUBLIC_BASE_SHA,
     RELEASE_DATE,
     RELEASE_ID,
@@ -46,11 +47,7 @@ manifest = {
         "essential_figure_count": len(FIGURES),
         "prepared_session_file_count": 0,
     },
-    "platform_validation": {
-        "ubuntu": "representative workflow exercised",
-        "windows": "release-candidate instructions; representative validation pending",
-        "macos": "release-candidate instructions; representative validation pending",
-    },
+    "platform_validation": PLATFORM_VALIDATION,
     "files": [
         {
             "path": relative,

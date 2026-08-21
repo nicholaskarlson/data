@@ -10,7 +10,9 @@ import sys
 from pathlib import Path
 
 from release_common import (
+    CITATION_VERSION,
     FIGURES,
+    PLATFORM_VALIDATION,
     PUBLIC_BASE_SHA,
     RELEASE_DATE,
     RELEASE_ID,
@@ -222,6 +224,11 @@ for internal_key in (
 ):
     if internal_key in manifest:
         fail(f"internal production field leaked into public release metadata: {internal_key}")
+if manifest.get("platform_validation") != PLATFORM_VALIDATION:
+    fail(
+        "release manifest platform validation must match the conservative "
+        f"record: {PLATFORM_VALIDATION}"
+    )
 assets = manifest.get("assets", {})
 expected_assets = {
     "dataset_count": 12,
@@ -257,6 +264,8 @@ for forbidden in (
     "a prepared session file is mandatory",
     "deterministic figures",
     "deterministic statistical figures",
+    "ubuntu workflow has been exercised",
+    "representative workflow exercised",
 ):
     if forbidden in lowered:
         fail(f"obsolete reader-facing phrase remains: {forbidden}")
@@ -269,11 +278,18 @@ for required in (
     "private data",
     "clinical",
     "restricted",
+    "partial",
+    "study 02 csv import",
+    "representative matrix",
 ):
     if required not in lowered:
         fail(f"required scope or safety language is missing: {required}")
 if CANONICAL_URL not in reader_text and CANONICAL_URL not in (ROOT / "CITATION.cff").read_text(encoding="utf-8"):
     fail("canonical repository URL is missing")
+
+citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
+if f'version: "{CITATION_VERSION}"' not in citation:
+    fail(f"CITATION.cff version must be {CITATION_VERSION}")
 
 for issue_template in (
     ".github/ISSUE_TEMPLATE/data_question.yml",
@@ -290,3 +306,4 @@ print(f"verified_results={len(STUDIES)}")
 print(f"essential_figures={len(FIGURES)}")
 print("prepared_session_files=0")
 print("cross_platform_claim=QUALIFIED")
+print("ubuntu_validation=PARTIAL")

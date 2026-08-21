@@ -8,9 +8,18 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RELEASE_ID = "reader-assets-v1"
+RELEASE_ID = "reader-assets-v1.0.1"
 RELEASE_DATE = "2026-08-21"
-PUBLIC_BASE_SHA = "81ad1e9c638b549a3a46de69c9d08ed46ae5bf0c"
+PUBLIC_BASE_SHA = "ee64a130456935f9ad9410b943546421b5bd3505"
+CITATION_VERSION = "1.0.1"
+PLATFORM_VALIDATION = {
+    "ubuntu": (
+        "partial - application launch and Study 02 CSV import observed; "
+        "representative matrix pending"
+    ),
+    "windows": "release-candidate instructions; representative validation pending",
+    "macos": "release-candidate instructions; representative validation pending",
+}
 
 STUDIES = {
     "study_01_foundations_sleep_stress": (120, 5),

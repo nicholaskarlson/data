@@ -15,7 +15,7 @@
     {
       "bytes": 439,
       "path": "CITATION.cff",
-      "sha256": "b804332a58e928f45de4e578b179de2fa998099db0dabe189fa1230b5e394cfc"
+      "sha256": "94ee15c6dc0c5ae97befcb14895e2f2fed126715121e2ad537e3335130d1a9e9"
     },
     {
       "bytes": 714,
@@ -23,14 +23,14 @@
       "sha256": "1ac7dacef25db066984e221fc6e37def049a855ef4be3252f00aa267879ff55b"
     },
     {
-      "bytes": 3892,
+      "bytes": 3987,
       "path": "QUICK_START.md",
-      "sha256": "b67524895770e36ee94be104761b715132eac3da801a24a15b78445f54eb9be3"
+      "sha256": "8808a2720b3378491228b1ed4d6ed163a6b687dddb8595305d7d656a6903e088"
     },
     {
-      "bytes": 2623,
+      "bytes": 3055,
       "path": "README.md",
-      "sha256": "b9e491646e76cd983373805e2d036644578d70c22956b92393cf2cb4a9a5fcec"
+      "sha256": "eabf77b98ae871486e1d53866e0b857170088f51826cffdb519bd9c2be1a173d"
     },
     {
       "bytes": 607,
@@ -258,18 +258,18 @@
       "sha256": "e672ae35723bad44923ab9977de120f6c8378fb5b029b801f3be1d572619b6af"
     },
     {
-      "bytes": 552,
+      "bytes": 729,
       "path": "releases/README.md",
-      "sha256": "e0616f5952fdcebfc409a09a438526864bd87598a5e1c8425e7400e7e32f0d8b"
+      "sha256": "64fe41d26801e783bb7bc7fc4f26ea871d1b731a65b72aeca824fa93d22bd73f"
     }
   ],
   "platform_validation": {
     "macos": "release-candidate instructions; representative validation pending",
-    "ubuntu": "representative workflow exercised",
+    "ubuntu": "partial - application launch and Study 02 CSV import observed; representative matrix pending",
     "windows": "release-candidate instructions; representative validation pending"
   },
-  "public_repository_base_main_sha": "81ad1e9c638b549a3a46de69c9d08ed46ae5bf0c",
+  "public_repository_base_main_sha": "ee64a130456935f9ad9410b943546421b5bd3505",
   "release_date": "2026-08-21",
-  "release_id": "reader-assets-v1",
+  "release_id": "reader-assets-v1.0.1",
   "schema_version": "1.0"
 }
