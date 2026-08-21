@@ -1,5 +1,14 @@
-# Releases
+# Reader-Assets Release
 
-Versioned companion bundles should be attached to GitHub Releases after a governed release Drop-in authorizes them.
+The versioned reader bundle contains the exact files recorded in `RELEASE_MANIFEST.json`.
 
-Future release bundles should include checksum manifests.
+Build it from a clean checkout:
+
+```bash
+make verify
+make release
+```
+
+The resulting archive is `dist/nekpress-jamovi-companion-reader-assets-v1.zip`. The build is deterministic: identical source files produce identical member order, timestamps, permissions, and bytes.
+
+Before attaching an archive to a GitHub Release, verify the release commit, run CI, download the archive once, and run the checker again against a clean extraction.

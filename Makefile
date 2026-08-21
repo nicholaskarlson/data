@@ -1,7 +1,16 @@
 PYTHON ?= python3
 
-.PHONY: verify
+.PHONY: verify metadata release clean
 
 verify:
-	$(PYTHON) scripts/check_public_companion_skeleton.py
-	@echo "NEKPRESS_JAMOVI_COMPANION_SKELETON_VERIFY_OK"
+	$(PYTHON) scripts/check_public_companion_release.py
+	@echo "NEKPRESS_JAMOVI_COMPANION_RELEASE_OK"
+
+metadata:
+	$(PYTHON) scripts/update_release_metadata.py
+
+release: verify
+	$(PYTHON) scripts/build_release_bundle.py
+
+clean:
+	rm -rf -- build dist
