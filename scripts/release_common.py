@@ -8,14 +8,14 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RELEASE_ID = "reader-assets-v1.0.1"
-RELEASE_DATE = "2026-08-21"
-PUBLIC_BASE_SHA = "ee64a130456935f9ad9410b943546421b5bd3505"
-CITATION_VERSION = "1.0.1"
+RELEASE_ID = "reader-assets-v1.0.2"
+RELEASE_DATE = "2026-08-22"
+PUBLIC_BASE_SHA = "01b56f25cad425a037cb08c44d76c1a4c2393801"
+CITATION_VERSION = "1.0.2"
 PLATFORM_VALIDATION = {
     "ubuntu": (
-        "partial - application launch and Study 02 CSV import observed; "
-        "representative matrix pending"
+        "passed - representative matrix and export/save/close/reopen "
+        "completed 2026-08-22"
     ),
     "windows": "release-candidate instructions; representative validation pending",
     "macos": "release-candidate instructions; representative validation pending",

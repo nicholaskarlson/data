@@ -4,7 +4,9 @@ The book is deliberately CSV-first. You do not need a prepared jamovi session fi
 
 ## 1. Download the Reader Assets
 
-From this repository, download the CSV named by the chapter and its matching JSON dictionary. Keeping the original filenames makes the chapter cross-references easier to follow.
+Open `https://github.com/nicholaskarlson/data`. Choose **Code > Download ZIP** for the complete reader package, or download the CSV named by the chapter and its matching JSON dictionary from the `data/` directory. Keeping the original filenames makes the chapter cross-references easier to follow.
+
+The short repository is a verified mirror of the canonical technical source at `https://github.com/nicholaskarlson/nekpress-psychology-methods-statistics-jamovi-companion`.
 
 You can verify a downloaded CSV on a command line with:
 
@@ -20,7 +22,7 @@ Compare the value with `data/SHA256SUMS`. Windows users without `sha256sum` can 
 - **macOS:** open jamovi Desktop from Applications. If macOS presents a first-launch security prompt, follow Apple’s normal application-opening procedure.
 - **Ubuntu:** open jamovi Desktop from the applications menu. A verified Flatpak installation can also be started with `flatpak run org.jamovi.jamovi`.
 
-Ubuntu validation is partial: application launch and Study 02 CSV import were observed with application release 28.2, but the representative matrix remains pending. The Windows and macOS wording below follows the same jamovi Desktop interface but should be treated as release-candidate guidance until representative platform validation is recorded.
+Ubuntu representative validation was completed on 22 August 2026 with application release 28.2. It covered fresh CSV import, descriptives, paired inference, regression, factorial and mixed repeated-measures ANOVA, a two-line group-by-week plot, export, save, complete application close, file-browser reopen, output persistence, and final source-checksum checks. The Windows and macOS wording below follows the same jamovi Desktop interface but should be treated as release-candidate guidance until representative platform validation is recorded.
 
 ## 3. Import a CSV
 

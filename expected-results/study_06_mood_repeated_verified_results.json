@@ -107,19 +107,19 @@
     "week": {
       "ss": 1228.965793650793,
       "df_uncorrected": 2,
-      "df_greenhouse_geisser": 1.671018870593,
+      "df_greenhouse_geisser": 1.602780401277,
       "f": 87.238243043537,
       "p_uncorrected": "1.569850288098272e-26",
-      "p_greenhouse_geisser": "1.357091949304380e-22",
+      "p_greenhouse_geisser": "8.908155299510561e-22",
       "partial_eta_squared": 0.515475943703
     },
     "support_group__week": {
       "ss": 470.521984126984,
       "df_uncorrected": 2,
-      "df_greenhouse_geisser": 1.671018870593,
+      "df_greenhouse_geisser": 1.602780401277,
       "f": 33.400043695814,
       "p_uncorrected": "6.789629683091825e-13",
-      "p_greenhouse_geisser": "3.675836241683184e-11",
+      "p_greenhouse_geisser": "8.422874657028627e-11",
       "partial_eta_squared": 0.289428345312
     },
     "error_between": {
@@ -133,12 +133,12 @@
       "ms": 7.043733062331
     },
     "sphericity": {
-      "mauchly_w": 0.803125425334,
-      "chi_square": 17.978039266599,
+      "mauchly_w": 0.752168420324,
+      "chi_square": 22.783601352953,
       "df": 2,
-      "p": "1.247723559595554e-04",
-      "greenhouse_geisser_epsilon": 0.835509435297,
-      "huynh_feldt_epsilon": 0.850653624381
+      "p": "1.128765760558333e-05",
+      "greenhouse_geisser_epsilon": 0.801390200639,
+      "huynh_feldt_epsilon": 0.815066280399
     },
     "week3_minus_week1_by_group": {
       "individual_reflection": {

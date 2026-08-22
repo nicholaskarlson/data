@@ -15,7 +15,7 @@
     {
       "bytes": 439,
       "path": "CITATION.cff",
-      "sha256": "94ee15c6dc0c5ae97befcb14895e2f2fed126715121e2ad537e3335130d1a9e9"
+      "sha256": "70233bc91a6161b6b42b90e9ae8ba22ecff49a3f385961494e3470cce855fddf"
     },
     {
       "bytes": 714,
@@ -23,14 +23,14 @@
       "sha256": "1ac7dacef25db066984e221fc6e37def049a855ef4be3252f00aa267879ff55b"
     },
     {
-      "bytes": 3987,
+      "bytes": 4478,
       "path": "QUICK_START.md",
-      "sha256": "8808a2720b3378491228b1ed4d6ed163a6b687dddb8595305d7d656a6903e088"
+      "sha256": "cd2c74dd682ca12da28ec9314466a3ec0170bc64335dbec6eabdc6686f9ad123"
     },
     {
-      "bytes": 3055,
+      "bytes": 4010,
       "path": "README.md",
-      "sha256": "eabf77b98ae871486e1d53866e0b857170088f51826cffdb519bd9c2be1a173d"
+      "sha256": "27820ee4534430326e54cc7556ab26b39b4a01dac3352b00f5b0ccd3379c0e81"
     },
     {
       "bytes": 607,
@@ -190,7 +190,7 @@
     {
       "bytes": 5523,
       "path": "expected-results/study_06_mood_repeated_verified_results.json",
-      "sha256": "17c8084aaa159097a78a95729aa1aafb703bb99bae45a723d14ab33ba0d2f51f"
+      "sha256": "07d54f8fce01ff2cc4a7ec58f3a510069cce8df1f1ca6ab7b79b5e3d3c196130"
     },
     {
       "bytes": 7124,
@@ -258,18 +258,18 @@
       "sha256": "e672ae35723bad44923ab9977de120f6c8378fb5b029b801f3be1d572619b6af"
     },
     {
-      "bytes": 729,
+      "bytes": 789,
       "path": "releases/README.md",
-      "sha256": "64fe41d26801e783bb7bc7fc4f26ea871d1b731a65b72aeca824fa93d22bd73f"
+      "sha256": "93bc166df0705a2815c564eecef65fd4e02036c40b71753c4adace55b5eb6851"
     }
   ],
   "platform_validation": {
     "macos": "release-candidate instructions; representative validation pending",
-    "ubuntu": "partial - application launch and Study 02 CSV import observed; representative matrix pending",
+    "ubuntu": "passed - representative matrix and export/save/close/reopen completed 2026-08-22",
     "windows": "release-candidate instructions; representative validation pending"
   },
-  "public_repository_base_main_sha": "ee64a130456935f9ad9410b943546421b5bd3505",
-  "release_date": "2026-08-21",
-  "release_id": "reader-assets-v1.0.1",
+  "public_repository_base_main_sha": "01b56f25cad425a037cb08c44d76c1a4c2393801",
+  "release_date": "2026-08-22",
+  "release_id": "reader-assets-v1.0.2",
   "schema_version": "1.0"
 }

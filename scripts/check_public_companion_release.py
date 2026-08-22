@@ -31,6 +31,7 @@ CANONICAL_URL = (
     "https://github.com/nicholaskarlson/"
     "nekpress-psychology-methods-statistics-jamovi-companion"
 )
+READER_URL = "https://github.com/nicholaskarlson/data"
 SKIP_DIRS = {".git", ".venv", "__pycache__", "build", "dist"}
 REQUIRED_PROJECT_PATHS = {
     ".github/ISSUE_TEMPLATE/config.yml",
@@ -278,14 +279,18 @@ for required in (
     "private data",
     "clinical",
     "restricted",
-    "partial",
-    "study 02 csv import",
-    "representative matrix",
+    "completed on 22 august 2026",
+    "representative validation",
+    "complete application close",
+    "file-browser reopen",
 ):
     if required not in lowered:
         fail(f"required scope or safety language is missing: {required}")
 if CANONICAL_URL not in reader_text and CANONICAL_URL not in (ROOT / "CITATION.cff").read_text(encoding="utf-8"):
     fail("canonical repository URL is missing")
+for reader_path in (ROOT / "README.md", ROOT / "QUICK_START.md"):
+    if READER_URL not in reader_path.read_text(encoding="utf-8"):
+        fail(f"reader download URL is missing from {reader_path.relative_to(ROOT)}")
 
 citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
 if f'version: "{CITATION_VERSION}"' not in citation:
@@ -306,4 +311,4 @@ print(f"verified_results={len(STUDIES)}")
 print(f"essential_figures={len(FIGURES)}")
 print("prepared_session_files=0")
 print("cross_platform_claim=QUALIFIED")
-print("ubuntu_validation=PARTIAL")
+print("ubuntu_validation=PASSED")
