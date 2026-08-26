@@ -1,5 +1,7 @@
 # Psychology Research Methods and Statistics by Design with Jamovi Companion
 
+**📊 [Browse the datasets on the web →](https://nicholaskarlson.github.io/data/)**
+
 Reader assets for *Psychology Research Methods and Statistics by Design with Jamovi: From Scientific Questions to APA-Style Results and Reproducible Evidence*.
 
 - Publisher: NEKpress.ca
