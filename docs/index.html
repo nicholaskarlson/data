@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free jamovi Teaching Datasets</title>
+<meta name="description" content="Twelve synthetic teaching datasets for jamovi Desktop, with data dictionaries, a dataset-to-workflow analysis matrix, and independently verified results. CC BY 4.0.">
+<meta property="og:title" content="Free jamovi Teaching Datasets">
+<meta property="og:description" content="Twelve synthetic datasets with dictionaries, an analysis matrix, and independently verified results so students can check their own jamovi output. CC BY 4.0.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F6F7F9; --surface:#FFFFFF; --surface-2:#EDEFF3;
+  --line:#D8DDE5; --line-soft:#E6EAF0;
+  --ink:#151A21; --ink-2:#454F5C; --ink-3:#6B7684;
+  --accent:#A6172B; --accent-soft:#F4E3E5;
+  --evidence:#1F6670; --evidence-soft:#DEEDEF;
+  --shadow:0 1px 2px rgba(21,26,33,.05), 0 8px 24px -18px rgba(21,26,33,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:#0E1218; --surface:#151A22; --surface-2:#1D242E;
+    --line:#2B333F; --line-soft:#232A34;
+    --ink:#E7EBF1; --ink-2:#AEB8C6; --ink-3:#7E8A99;
+    --accent:#E4677A; --accent-soft:#2C1A1F;
+    --evidence:#63B6BF; --evidence-soft:#12262A;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* nav */
+.topbar{border-bottom:1px solid var(--line);background:var(--surface)}
+.topbar .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:14px;padding-top:14px;padding-bottom:14px}
+.brand{font-family:Spectral,Georgia,serif;font-weight:600;font-size:17px;
+  text-decoration:none;color:var(--ink)}
+.brand span{color:var(--ink-3);font-family:"Source Sans 3",sans-serif;font-size:14px;font-weight:400}
+.nav{display:flex;flex-wrap:wrap;gap:20px}
+.nav a{font-size:14.5px;color:var(--ink-2);text-decoration:none}
+.nav a:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+/* hero */
+.hero{padding:60px 0 44px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+h1{font-family:Spectral,Georgia,serif;font-weight:700;font-size:clamp(34px,5.6vw,52px);
+  line-height:1.08;letter-spacing:-.015em;margin:0 0 20px;text-wrap:balance;max-width:18ch}
+.lede{font-family:Spectral,Georgia,serif;font-size:clamp(18px,2.2vw,21px);line-height:1.55;
+  color:var(--ink-2);max-width:60ch;margin:0 0 26px}
+.lede strong{color:var(--ink);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;padding:5px 10px;border-radius:2px;
+  border:1px solid var(--line);color:var(--ink-3);background:var(--surface)}
+.chip.lic{color:var(--evidence);border-color:var(--evidence);background:var(--evidence-soft)}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 22px;border-radius:3px;text-decoration:none;
+  font-weight:600;font-size:15.5px;border:1px solid var(--accent);
+  background:var(--accent);color:#fff;transition:opacity .15s}
+.btn:hover{opacity:.88}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+@media (prefers-color-scheme:dark){.btn{color:#1a0d10}}
+
+/* sections */
+section{padding:56px 0;border-bottom:1px solid var(--line-soft)}
+section:last-of-type{border-bottom:0}
+h2{font-family:Spectral,Georgia,serif;font-weight:600;font-size:clamp(24px,3.2vw,31px);
+  line-height:1.2;letter-spacing:-.01em;margin:0 0 8px;text-wrap:balance}
+.dek{color:var(--ink-3);font-size:15.5px;margin:0 0 28px;max-width:62ch}
+p{max-width:68ch;margin:0 0 16px}
+a{color:var(--accent);text-underline-offset:2px}
+code{font-family:"IBM Plex Mono",monospace;font-size:.87em;background:var(--surface-2);
+  padding:2px 6px;border-radius:3px;color:var(--ink)}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);
+  border-radius:3px;padding:22px 24px;box-shadow:var(--shadow)}
+.steps li::before{content:counter(s);display:flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:50%;background:var(--accent-soft);color:var(--accent);
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;margin-bottom:12px}
+.steps h3{font-family:Spectral,serif;font-size:19px;font-weight:600;margin:0 0 6px;line-height:1.3}
+.steps p{font-size:15px;margin:0;color:var(--ink-2)}
+
+/* table */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:780px;font-size:15px}
+th,td{text-align:left;padding:13px 16px;vertical-align:top;border-bottom:1px solid var(--line-soft)}
+thead th{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:500;background:var(--surface-2);
+  border-bottom:1px solid var(--line);position:sticky;top:0}
+tbody tr:last-child td{border-bottom:0}
+td.file{font-family:"IBM Plex Mono",monospace;font-size:12.5px;line-height:1.5}
+td.file a{text-decoration:none}
+td.file a:hover{text-decoration:underline}
+td.file a.primary{font-weight:600;display:block;margin-bottom:5px;word-break:break-all}
+td.file .aux{display:flex;flex-wrap:wrap;gap:4px 12px;font-family:"Source Sans 3",sans-serif;font-size:12.5px}
+td.file .aux a{color:var(--ink-3)}
+td.file .aux a:hover{color:var(--accent)}
+td.ch{font-variant-numeric:tabular-nums;color:var(--ink-3);white-space:nowrap;font-size:14px}
+td.teach{max-width:26ch}
+td.flow{color:var(--ink-2);max-width:30ch;font-size:14.5px}
+
+/* grid cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:3px;
+  padding:20px 22px;box-shadow:var(--shadow)}
+.card h3{font-family:"Source Sans 3",sans-serif;font-size:16px;font-weight:700;margin:0 0 6px}
+.card p{font-size:14.5px;color:var(--ink-2);margin:0}
+.card code{font-size:12.5px}
+
+/* license block */
+.license{background:var(--evidence-soft);border:1px solid var(--evidence);
+  border-radius:3px;padding:26px 28px}
+.license h3{font-family:Spectral,serif;font-size:21px;font-weight:600;margin:0 0 10px;color:var(--ink)}
+.license p{margin-bottom:12px}
+.license p:last-child{margin-bottom:0}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:start}
+@media (max-width:700px){.about{grid-template-columns:1fr}}
+.about .bookbox{background:var(--surface);border:1px solid var(--line);border-radius:3px;
+  padding:22px 24px;box-shadow:var(--shadow)}
+.about .bookbox h3{font-family:Spectral,serif;font-size:18px;font-weight:600;margin:0 0 8px;line-height:1.35}
+.about .bookbox p{font-size:14.5px;color:var(--ink-2);margin-bottom:14px}
+
+footer{padding:44px 0 64px;border-top:1px solid var(--line);color:var(--ink-3);font-size:14px}
+footer p{max-width:70ch;margin:0 0 12px}
+footer a{color:var(--ink-2)}
+.disclaimer{font-size:13px;padding-top:14px;border-top:1px solid var(--line-soft);margin-top:20px}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <a class="brand" href="./">Free jamovi Teaching Datasets <span>· NEKpress Research</span></a>
+  <nav class="nav">
+    <a href="#start">Start</a>
+    <a href="#datasets">The twelve datasets</a>
+    <a href="#contents">What's included</a>
+    <a href="#teaching">Use in teaching</a>
+    <a href="#about">About</a>
+  </nav>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <p class="eyebrow">Synthetic teaching data for jamovi Desktop</p>
+  <h1>Twelve datasets. Every result already verified.</h1>
+  <p class="lede">Free, openly licensed practice data for teaching and learning statistics in jamovi &mdash; each file with a data dictionary, a mapped analysis workflow, and <strong>independently recomputed results</strong>, so a student can check their own output field by field.</p>
+  <div class="chips">
+    <span class="chip lic">CC BY 4.0</span>
+    <span class="chip">12 datasets</span>
+    <span class="chip">Verified on jamovi 28.2</span>
+    <span class="chip">No login</span>
+    <span class="chip">SHA-256 checksums</span>
+  </div>
+  <div class="cta">
+    <a class="btn" href="https://github.com/nicholaskarlson/data/archive/refs/heads/main.zip">Download everything (ZIP)</a>
+    <a class="btn ghost" href="https://github.com/nicholaskarlson/data">Browse the repository</a>
+  </div>
+</div></header>
+
+<main>
+
+<section id="start"><div class="wrap">
+  <h2>Start in three steps</h2>
+  <p class="dek">About five minutes, from nothing to a result you can check.</p>
+  <ol class="steps">
+    <li>
+      <h3>Take a CSV and its dictionary</h3>
+      <p>Pick a study from the table below. Download the CSV, and open its dictionary <em>before</em> the data &mdash; it tells you what each variable means, how it is coded, and where the missing values sit.</p>
+    </li>
+    <li>
+      <h3>Import it into jamovi</h3>
+      <p>Open jamovi Desktop, choose <code>File &rsaquo; Open &rsaquo; Browse</code>, and select the CSV. Check the measurement levels and group ordering against the dictionary before running anything.</p>
+    </li>
+    <li>
+      <h3>Check yourself against the record</h3>
+      <p>Run the workflow named for that study, then compare your output with the matching file in <code>expected-results/</code>. If a number differs, one of you is wrong &mdash; and you can find out which.</p>
+    </li>
+  </ol>
+</div></section>
+
+<section id="datasets"><div class="wrap">
+  <h2>The twelve datasets</h2>
+  <p class="dek">Each one exercises a different design. Chapter numbers refer to the companion book, but nothing here requires it &mdash; <code>ANALYSIS_MATRIX.md</code> names the workflow and the result fields for every file.</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr>
+      <th scope="col">Dataset</th>
+      <th scope="col">What it teaches</th>
+      <th scope="col">jamovi workflow</th>
+      <th scope="col">Ch.</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="file"><a class="primary" href="https://github.com/nicholaskarlson/data/blob/main/data/study_01_foundations_sleep_stress.csv">study_01_foundations_sleep_stress.csv</a><span class="aux"><a href="https://github.com/nicholaskarlson/data/blob/main/data/dictionaries/study_01_foundations_sleep_stress_dictionary.json">dictionary</a><a href="https://github.com/nicholaskarlson/data/blob/main/expected-results/study_01_foundations_sleep_stress_verified_results.json">verified results</a></span></td>
+        <td class="teach">Foundations — sleep hours and stress in a student sample</td>
+        <td class="flow">Fresh CSV import, descriptives, histogram, boxplot</td>
+        <td class="ch">1–7</td>
+      </tr>
+      <tr>
+        <td class="file"><a class="primary" href="https://github.com/nicholaskarlson/data/blob/main/data/study_02_mindfulness_paired.csv">study_02_mindfulness_paired.csv</a><span class="aux"><a href="https://github.com/nicholaskarlson/data/blob/main/data/dictionaries/study_02_mindfulness_paired_dictionary.json">dictionary</a><a href="https://github.com/nicholaskarlson/data/blob/main/expected-results/study_02_mindfulness_paired_verified_results.json">verified results</a></span></td>
+        <td class="teach">A paired pre/post design</td>
+        <td class="flow">Paired-samples <em>t</em> test, bootstrap demonstration, power planning</td>
+        <td class="ch">8–11, 17</td>
+      </tr>
+      <tr>
+        <td class="file"><a class="primary" href="https://github.com/nicholaskarlson/data/blob/main/data/study_03_feedback_two_groups.csv">study_03_feedback_two_groups.csv</a><span class="aux"><a href="https://github.com/nicholaskarlson/data/blob/main/data/dictionaries/study_03_feedback_two_groups_dictionary.json">dictionary</a><a href="https://github.com/nicholaskarlson/data/blob/main/expected-results/study_03_feedback_two_groups_verified_results.json">verified results</a></span></td>
+        <td class="teach">Two independent groups</td>
+        <td class="flow">Welch independent-samples <em>t</em> test, effect size</td>
+        <td class="ch">16, 18</td>
+      </tr>
+      <tr>
+        <td class="file"><a class="primary" href="https://github.com/nicholaskarlson/data/blob/main/data/study_04_practice_spacing_anova.csv">study_04_practice_spacing_anova.csv</a><span class="aux"><a href="https://github.com/nicholaskarlson/data/blob/main/data/dictionaries/study_04_practice_spacing_anova_dictionary.json">dictionary</a><a href="https://github.com/nicholaskarlson/data/blob/main/expected-results/study_04_practice_spacing_anova_verified_results.json">verified results</a></span></td>
+        <td class="teach">Three or more groups</td>
+        <td class="flow">One-way ANOVA with post hoc comparisons</td>
+        <td class="ch">19</td>
+      </tr>
+      <tr>
+        <td class="file"><a class="primary" href="https://github.com/nicholaskarlson/data/blob/main/data/study_05_sleep_strategy_factorial.csv">study_05_sleep_strategy_factorial.csv</a><span class="aux"><a href="https://github.com/nicholaskarlson/data/blob/main/data/dictionaries/study_05_sleep_strategy_factorial_dictionary.json">dictionary</a><a href="https://github.com/nicholaskarlson/data/blob/main/expected-results/study_05_sleep_strategy_factorial_verified_results.json">verified results</a></span></td>
+        <td class="teach">Two crossed factors and an interaction</td>
+        <td class="flow">Factorial ANOVA, marginal means, interaction plot</td>
+        <td class="ch">20</td>
+      </tr>
+      <tr>
+        <td class="file"><a class="primary" href="https://github.com/nicholaskarlson/data/blob/main/data/study_06_mood_repeated.csv">study_06_mood_repeated.csv</a><span class="aux"><a href="https://github.com/nicholaskarlson/data/blob/main/data/dictionaries/study_06_mood_repeated_dictionary.json">dictionary</a><a href="https://github.com/nicholaskarlson/data/blob/main/expected-results/study_06_mood_repeated_verified_results.json">verified results</a></span></td>
+        <td class="teach">Repeated measurements on the same people</td>
+        <td class="flow">Repeated-measures ANOVA, sphericity check</td>
+        <td class="ch">21</td>
+      </tr>
+      <tr>
+        <td class="file"><a class="primary" href="https://github.com/nicholaskarlson/data/blob/main/data/study_07_belonging_survey_regression.csv">study_07_belonging_survey_regression.csv</a><span class="aux"><a href="https://github.com/nicholaskarlson/data/blob/main/data/dictionaries/study_07_belonging_survey_regression_dictionary.json">dictionary</a><a href="https://github.com/nicholaskarlson/data/blob/main/expected-results/study_07_belonging_survey_regression_verified_results.json">verified results</a></span></td>
+        <td class="teach">Survey data, association and prediction</td>
+        <td class="flow">Simple and multiple regression, residual plots</td>
+        <td class="ch">12–15</td>
+      </tr>
+      <tr>
+        <td class="file"><a class="primary" href="https://github.com/nicholaskarlson/data/blob/main/data/study_08_help_seeking_categorical.csv">study_08_help_seeking_categorical.csv</a><span class="aux"><a href="https://github.com/nicholaskarlson/data/blob/main/data/dictionaries/study_08_help_seeking_categorical_dictionary.json">dictionary</a><a href="https://github.com/nicholaskarlson/data/blob/main/expected-results/study_08_help_seeking_categorical_verified_results.json">verified results</a></span></td>
+        <td class="teach">Counts and categories</td>
+        <td class="flow">Chi-square test, contingency table</td>
+        <td class="ch">22</td>
+      </tr>
+      <tr>
+        <td class="file"><a class="primary" href="https://github.com/nicholaskarlson/data/blob/main/data/study_09_skewed_wellbeing_nonparametric.csv">study_09_skewed_wellbeing_nonparametric.csv</a><span class="aux"><a href="https://github.com/nicholaskarlson/data/blob/main/data/dictionaries/study_09_skewed_wellbeing_nonparametric_dictionary.json">dictionary</a><a href="https://github.com/nicholaskarlson/data/blob/main/expected-results/study_09_skewed_wellbeing_nonparametric_verified_results.json">verified results</a></span></td>
+        <td class="teach">Skewed distributions, when the usual test will not do</td>
+        <td class="flow">Kruskal-Wallis, Mann-Whitney <em>U</em></td>
+        <td class="ch">23</td>
+      </tr>
+      <tr>
+        <td class="file"><a class="primary" href="https://github.com/nicholaskarlson/data/blob/main/data/study_10_developmental_emotion_recognition.csv">study_10_developmental_emotion_recognition.csv</a><span class="aux"><a href="https://github.com/nicholaskarlson/data/blob/main/data/dictionaries/study_10_developmental_emotion_recognition_dictionary.json">dictionary</a><a href="https://github.com/nicholaskarlson/data/blob/main/expected-results/study_10_developmental_emotion_recognition_verified_results.json">verified results</a></span></td>
+        <td class="teach">Age groups and a covariate</td>
+        <td class="flow">ANOVA and ANCOVA</td>
+        <td class="ch">24</td>
+      </tr>
+      <tr>
+        <td class="file"><a class="primary" href="https://github.com/nicholaskarlson/data/blob/main/data/study_11_single_case_habit_tracking.csv">study_11_single_case_habit_tracking.csv</a><span class="aux"><a href="https://github.com/nicholaskarlson/data/blob/main/data/dictionaries/study_11_single_case_habit_tracking_dictionary.json">dictionary</a><a href="https://github.com/nicholaskarlson/data/blob/main/expected-results/study_11_single_case_habit_tracking_verified_results.json">verified results</a></span></td>
+        <td class="teach">A single-case series across phases</td>
+        <td class="flow">Phase analysis, NAP, visual inspection</td>
+        <td class="ch">25</td>
+      </tr>
+      <tr>
+        <td class="file"><a class="primary" href="https://github.com/nicholaskarlson/data/blob/main/data/study_12_reporting_handoff_capstone.csv">study_12_reporting_handoff_capstone.csv</a><span class="aux"><a href="https://github.com/nicholaskarlson/data/blob/main/data/dictionaries/study_12_reporting_handoff_capstone_dictionary.json">dictionary</a><a href="https://github.com/nicholaskarlson/data/blob/main/expected-results/study_12_reporting_handoff_capstone_verified_results.json">verified results</a></span></td>
+        <td class="teach">Capstone — auditing and reporting a result</td>
+        <td class="flow">Audit, export, APA summary verification</td>
+        <td class="ch">26–27</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:20px">Browse the folders directly: <a href="https://github.com/nicholaskarlson/data/tree/main/data">data</a>, <a href="https://github.com/nicholaskarlson/data/tree/main/data/dictionaries">dictionaries</a>, <a href="https://github.com/nicholaskarlson/data/tree/main/expected-results">expected-results</a>, <a href="https://github.com/nicholaskarlson/data/tree/main/figures/generated">figures</a> &mdash; or read the <a href="https://github.com/nicholaskarlson/data/blob/main/ANALYSIS_MATRIX.md">full analysis matrix</a>.</p>
+</div></section>
+
+<section id="contents"><div class="wrap">
+  <h2>What is in the repository</h2>
+  <p class="dek">Everything below is public, free, and requires no account.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Twelve CSV datasets</h3>
+      <p>Deterministic synthetic data, one file per teaching example, in <code>data/</code>.</p>
+    </div>
+    <div class="card">
+      <h3>A dictionary for every file</h3>
+      <p>Machine-readable: variable meanings, coding, allowed values, and where the missing values are placed.</p>
+    </div>
+    <div class="card">
+      <h3>Analysis matrix</h3>
+      <p><code>ANALYSIS_MATRIX.md</code> maps each dataset to its jamovi workflow and the exact output fields that answer its question.</p>
+    </div>
+    <div class="card">
+      <h3>Verified result records</h3>
+      <p><code>expected-results/</code> holds every reported statistic, recomputed independently from the source files.</p>
+    </div>
+    <div class="card">
+      <h3>Six figures</h3>
+      <p>Generated from the same data at fixed seeds, in <a href="https://github.com/nicholaskarlson/data/tree/main/figures/generated"><code>figures/generated/</code></a>, so you can regenerate them yourself.</p>
+    </div>
+    <div class="card">
+      <h3>Checksums and errata</h3>
+      <p><code>SHA256SUMS</code> confirms the file you have is the file that was published. <code>ERRATA.md</code> is where corrections go.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="teaching"><div class="wrap">
+  <h2>Use it in your own teaching</h2>
+  <p class="dek">The licence is the point, not a footnote.</p>
+  <div class="license">
+    <h3>Take any of this into your own course, without asking</h3>
+    <p>The datasets, dictionaries, figures, errata, and documentation are released under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International licence</a>. Short utility scripts are MIT. You may copy, adapt, and redistribute any of it &mdash; in worksheets, assignments, lecture slides, or your own published materials, including commercially &mdash; provided you give credit.</p>
+    <p>Every file is <strong>deterministic and synthetic</strong>. There are no real participant records, so nothing here raises a privacy question when it goes into a classroom, a public assignment, or a shared repository. Results computed from these files are teaching examples, not findings about real people.</p>
+    <p><strong>A request, not a condition:</strong> if there is a design you keep wanting clean teaching data for and cannot find, say so. Adding one is a day's work, and guessing what people need is worse than being told.</p>
+  </div>
+</div></section>
+
+<section id="about"><div class="wrap">
+  <h2>About</h2>
+  <div class="about">
+    <div>
+      <p>These files were built by <strong>Nicholas Elliott Karlson, PhD</strong>, a statistician and educator, and published by NEKpress Research. His work focuses on applied statistical reasoning, research design, reproducibility, and workflows in jamovi, Python, and R that make quantitative results easier to inspect, explain, and defend.</p>
+      <p><a href="https://github.com/nicholaskarlson">GitHub</a> &middot; <a href="https://scholar.google.com/citations?user=FOSnM9gAAAAJ&amp;hl=en">Google Scholar</a> &middot; <a href="https://nekpress.ca">NEKpress.ca</a></p>
+    </div>
+    <div class="bookbox">
+      <h3>The data was built for a book, and does not require it</h3>
+      <p><em>Psychology Research Methods and Statistics by Design with Jamovi</em> takes each topic from a research question through a jamovi workflow to an APA-style result and the limitation that keeps it honest. Twenty-seven chapters. The datasets on this page are its companion &mdash; but they stand alone, and the analysis matrix names every workflow independently of the text.</p>
+      <p><a href="https://www.amazon.com/dp/B0HG9VV1JR">See the book</a></p>
+    </div>
+  </div>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+  <p><strong>Found a problem?</strong> Open an issue on the <a href="https://github.com/nicholaskarlson/data/issues">repository</a>, or check <a href="https://github.com/nicholaskarlson/data/blob/main/ERRATA.md">ERRATA.md</a> first to see whether it is already known. Corrections are welcome and get fixed.</p>
+  <p>Workflows verified against jamovi Desktop 28.2 on Ubuntu. Menu locations differ slightly across Windows, macOS, and Linux, and between releases &mdash; follow the named analysis and output fields rather than a screen position.</p>
+  <p class="disclaimer">jamovi is a trademark of the jamovi project. This is an independent educational resource. It is not affiliated with, authorized by, endorsed by, or sponsored by the jamovi project. &copy; 2026 Nicholas Elliott Karlson. Content licensed CC BY 4.0; code MIT.</p>
+</div></footer>
+
+</body>
+</html>
