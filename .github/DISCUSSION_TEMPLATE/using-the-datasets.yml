@@ -1,0 +1,62 @@
+title: "[Dataset question] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this category for questions about the public synthetic datasets, dictionaries, verified result records, and published jamovi workflows. Do not post private data or ask for homework completion or individualized model selection.
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      options:
+        - Importing a public CSV into jamovi
+        - Reading a data dictionary
+        - Reproducing a published workflow
+        - Understanding a verified result field
+        - Improving the public documentation
+    validations:
+      required: true
+  - type: input
+    id: file_name
+    attributes:
+      label: Public file name
+      description: Name the CSV, dictionary, verified result record, or other public companion file.
+      placeholder: study_02_mindfulness_paired.csv
+    validations:
+      required: true
+  - type: input
+    id: published_location
+    attributes:
+      label: Published workflow location
+      description: Give the book chapter, page, section, or analysis-matrix row if applicable.
+      placeholder: "For example: Chapter 17, paired-samples t test"
+    validations:
+      required: false
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: Explain the point in the published workflow or public file that you want to understand.
+    validations:
+      required: true
+  - type: textarea
+    id: steps_tried
+    attributes:
+      label: What have you tried?
+      description: List the documented steps you followed and what happened. Include your jamovi version when relevant.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope confirmation
+      options:
+        - label: My question concerns the public synthetic companion materials or a published workflow, not my own study or homework.
+          required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I have not included private, identifiable, clinical, institutional, thesis, restricted, client, or student data.
+          required: true
