@@ -4,17 +4,30 @@ title: "Errata: "
 labels:
   - errata
 body:
+  - type: dropdown
+    id: format
+    attributes:
+      label: Format
+      description: Select the format in which you found the possible error.
+      options:
+        - Paperback
+        - Kindle
+        - Other print or digital format
+    validations:
+      required: true
   - type: input
     id: book_version
     attributes:
-      label: Book version or printing
-      description: Use the version, printing, or publication date from your copy if available.
+      label: Edition, printing, or publication date
+      description: Use the edition, printing, or publication date shown in your copy if available.
     validations:
       required: true
   - type: input
     id: location
     attributes:
-      label: Chapter, page, table, or figure
+      label: Location in your copy
+      description: For print, give the chapter and page plus any table, figure, equation, or exercise number. For Kindle, give the chapter or section and Kindle location.
+      placeholder: "For example: Chapter 17, p. 163, Check Yourself 4; or Chapter 17, Kindle location 2841"
     validations:
       required: true
   - type: textarea

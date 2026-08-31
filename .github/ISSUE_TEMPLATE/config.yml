@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Support boundary
-    url: https://github.com/nicholaskarlson/nekpress-psychology-methods-statistics-jamovi-companion/blob/main/SUPPORT.md
-    about: Read what kinds of public support are appropriate before opening an issue.
+  - name: Reader-support scope
+    url: https://github.com/nicholaskarlson/data/blob/main/COMMUNITY.md
+    about: Read what belongs in Issues and Discussions before posting.
