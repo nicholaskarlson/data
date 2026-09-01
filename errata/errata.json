@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "policy": {
+    "acknowledgement_days": 7,
+    "numeric_reports_recomputed": true,
+    "credit_default": "reporter is credited by name unless they decline"
+  },
+  "categories": {
+    "numeric": "A printed value disagrees with the verified result record.",
+    "procedure": "A jamovi menu path, option, or setting is wrong or has changed.",
+    "interpretation": "Wording overstates, misstates, or misleads about what a result supports.",
+    "data": "A dataset, dictionary, or checksum problem.",
+    "typographic": "Spelling, notation, table, or layout.",
+    "enhancement": "A reader suggestion. Not an error."
+  },
+  "statuses": [
+    "reported",
+    "confirmed",
+    "fixed",
+    "published",
+    "not-an-error",
+    "declined"
+  ],
+  "records": []
+}
