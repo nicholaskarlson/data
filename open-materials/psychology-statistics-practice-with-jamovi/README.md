@@ -8,6 +8,10 @@ Published 2 September 2026
 
 This open educational resource contains 11 units, 232 practice problems, and 232 fully worked solutions. It emphasizes research-question-first model choice, claim ceilings, effect sizes, uncertainty, and cumulative scientific evidence.
 
+The front matter includes an **Optional Books for Deeper Study** guide to four published books by Nicholas Elliott Karlson, explaining how each can extend the open material and providing a public Amazon link. The books are optional purchases; the CC BY 4.0 resource is complete and usable on its own. All four books also appear in the resource bibliography.
+
+**Publication correction, 2 September 2026:** The canonical Version 1.0 files below replace an initial pre-four-book export. These current downloads and checksums are authoritative.
+
 ## Download
 
 - [PDF for reading and printing](psychology-statistics-practice-materials-with-jamovi-open-resource-v1.0.pdf)
@@ -40,8 +44,8 @@ SHA-256 checksums are recorded in [SHA256SUMS](SHA256SUMS):
 
 | File | SHA-256 |
 | --- | --- |
-| DOCX | `05faf02b31f5fd3c290d3a3d5fbe4844e852223db663143b36fd1ea91c8927f0` |
-| PDF | `2812174fa67366d7d700f3ddddaaecef3453b3f7674a9eaacdec022b6f7f48db` |
+| DOCX | `38e71ca90497e9d8d656c6bd7f856264d72cc717b5676cf8327de8ce041db95b` |
+| PDF | `3d605241d97a695a8fe1ba1a8d211cc0b0081e5cfe58d2ad8a481088458dab2a` |
 
 ## Questions, Corrections, and Improvements
 
