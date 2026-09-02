@@ -13,22 +13,24 @@ from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
 RESOURCE_DIR = ROOT / "open-materials/psychology-statistics-practice-with-jamovi"
-DOCX_NAME = "psychology-statistics-practice-materials-with-jamovi-open-resource-v1.0.docx"
-PDF_NAME = "psychology-statistics-practice-materials-with-jamovi-open-resource-v1.0.pdf"
+DOCX_NAME = "psychology-statistics-practice-materials-with-jamovi-open-resource-v1.1.docx"
+PDF_NAME = "psychology-statistics-practice-materials-with-jamovi-open-resource-v1.1.pdf"
 EXPECTED = {
     DOCX_NAME: (
-        178_096,
-        "38e71ca90497e9d8d656c6bd7f856264d72cc717b5676cf8327de8ce041db95b",
+        178_036,
+        "8fee3c19f931437e7f98b646480c5684c55bb9ff9ca6ab6ae6db04a59b43287b",
     ),
     PDF_NAME: (
-        1_584_517,
-        "3d605241d97a695a8fe1ba1a8d211cc0b0081e5cfe58d2ad8a481088458dab2a",
+        1_590_798,
+        "a4851c004fb543edb837c5d87b2dbe05820ffb2be4c8015c4bdc5bf9b1e46727",
     ),
 }
 EXPECTED_MEMBERS = {"README.md", "SHA256SUMS", DOCX_NAME, PDF_NAME}
 REPOSITORY_URL = "https://github.com/nicholaskarlson/data"
 DISCUSSIONS_URL = f"{REPOSITORY_URL}/discussions"
 LICENSE_URL = "https://creativecommons.org/licenses/by/4.0/"
+DOI = "10.5281/zenodo.22262048"
+DOI_URL = f"https://doi.org/{DOI}"
 BOOK_LINKS = {
     "Psychology Research Methods and Statistics by Design with Jamovi": "https://www.amazon.com/dp/B0HG9VV1JR",
     "Psychological Statistics by Design": "https://www.amazon.com/dp/B0HCMCKR7X",
@@ -91,6 +93,7 @@ try:
         document_relationships = archive.read("word/_rels/document.xml.rels").decode(
             "utf-8"
         )
+        core_properties = archive.read("docProps/core.xml").decode("utf-8")
 except zipfile.BadZipFile as exc:
     fail(f"DOCX is not a valid ZIP package: {exc}")
 
@@ -106,11 +109,16 @@ docx_text = re.sub(r"\s+", " ", docx_text)
 for required in (
     "Psychology Statistics Practice Materials with Jamovi",
     "Model Choice, Worked Solutions, and Scientific Evidence",
+    "Problems and Worked Solutions - Version 1.1",
     "Nicholas Elliott Karlson",
     "Creative Commons Attribution 4.0 International",
+    DOI_URL,
     REPOSITORY_URL,
     "synthetic teaching data",
     "Optional Books for Deeper Study",
+    "replacing 71.4 with 714 increases it from 10.060 to 78.962",
+    "-0.086 ± 1.997 × 0.107 gives [-0.300, 0.128]",
+    "(3.357 / √2) × 1.781 = 4.227",
     *BOOK_LINKS,
 ):
     if required not in docx_text:
@@ -122,13 +130,29 @@ for forbidden in (
     "not yet public",
     "private repository",
     "unpublished manuscript",
+    "Problems and Worked Solutions - Version 1.0",
 ):
     if forbidden.lower() in docx_text.lower():
         fail(f"DOCX contains private-development language: {forbidden!r}")
 
-for required_link in (REPOSITORY_URL, DISCUSSIONS_URL, LICENSE_URL, *BOOK_LINKS.values()):
+for required_link in (
+    REPOSITORY_URL,
+    DISCUSSIONS_URL,
+    LICENSE_URL,
+    DOI_URL,
+    *BOOK_LINKS.values(),
+):
     if required_link not in document_relationships:
         fail(f"DOCX lacks required live hyperlink: {required_link}")
+
+for required_property in (
+    "Version 1.1",
+    DOI,
+    "Nicholas Elliott Karlson",
+    "Model Choice, Worked Solutions, and Scientific Evidence",
+):
+    if required_property not in core_properties:
+        fail(f"DOCX core properties lack release metadata: {required_property!r}")
 
 pdf_bytes = (RESOURCE_DIR / PDF_NAME).read_bytes()
 if not pdf_bytes.startswith(b"%PDF-") or b"%%EOF" not in pdf_bytes[-2048:]:
@@ -142,6 +166,9 @@ for required in (
     "Optional Books for Deeper Study",
     "Creative Commons Attribution 4.0 International License",
     LICENSE_URL,
+    "Version 1.1",
+    DOI_URL,
+    "make audit",
     REPOSITORY_URL,
     DISCUSSIONS_URL,
     DOCX_NAME,
@@ -168,7 +195,8 @@ for relative, markers in surface_requirements.items():
 
 print("NEKPRESS_OPEN_MATERIALS_VERIFY_OK")
 print("resource=psychology-statistics-practice-materials-with-jamovi")
-print("version=1.0")
+print("version=1.1")
+print(f"version_doi={DOI}")
 print("docx=1")
 print("pdf=1")
 print("license=CC-BY-4.0")

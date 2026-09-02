@@ -1,5 +1,14 @@
 # Changelog
 
+## psychology-statistics-practice-materials-v1.1 — 2026-09-03
+
+- Embedded the reserved version DOI `10.5281/zenodo.22262048` in the editable DOCX, print-ready PDF, resource README, and public landing page.
+- Corrected the internally inconsistent wording of Solution 4.7 while preserving its verified values and substantive conclusion.
+- Clarified that the displayed rounded inputs in Solution 9.11 give an upper confidence limit of `0.128`, whereas the unrounded verified calculation gives `0.129`; the inferential conclusion is unchanged.
+- Clarified the Tukey scale in Problem and Solution 11.15: the half-width is `(3.357 / √2) × 1.781 = 4.227`, equivalently `3.357 × √(63.418 / 40)`.
+- Added a dependency-free numerical audit that independently recomputes 112 checks from the three raw CSV studies and the two summary-defined teaching variants; both `make audit` and the complete `make verify` gate run it.
+- Preserved the 11-unit structure, 232 practice problems, 232 fully worked solutions, four-book guide, four Amazon links, and four bibliography entries.
+
 ## psychology-statistics-practice-materials-v1.0 — 2026-09-02
 
 - Published *Psychology Statistics Practice Materials with Jamovi: Model Choice, Worked Solutions, and Scientific Evidence* as a CC BY 4.0 open educational resource.

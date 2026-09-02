@@ -2,20 +2,22 @@
 
 *Model Choice, Worked Solutions, and Scientific Evidence*
 
-Version 1.0
+Version 1.1
 Nicholas Elliott Karlson
-Published 2 September 2026
+Published 3 September 2026
+
+Version DOI: [10.5281/zenodo.22262048](https://doi.org/10.5281/zenodo.22262048)
 
 This open educational resource contains 11 units, 232 practice problems, and 232 fully worked solutions. It emphasizes research-question-first model choice, claim ceilings, effect sizes, uncertainty, and cumulative scientific evidence.
 
 The front matter includes an **Optional Books for Deeper Study** guide to four published books by Nicholas Elliott Karlson, explaining how each can extend the open material and providing a public Amazon link. The books are optional purchases; the CC BY 4.0 resource is complete and usable on its own. All four books also appear in the resource bibliography.
 
-**Publication correction, 2 September 2026:** The canonical Version 1.0 files below replace an initial pre-four-book export. These current downloads and checksums are authoritative.
+**Version 1.1, 3 September 2026:** This DOI-hardened release corrects the wording of Solution 4.7, clarifies the rounding in Solution 9.11, and clarifies the Tukey interval calculation in Problem and Solution 11.15. Statistical estimates and conclusions are unchanged. These downloads and checksums are authoritative.
 
 ## Download
 
-- [PDF for reading and printing](psychology-statistics-practice-materials-with-jamovi-open-resource-v1.0.pdf)
-- [Editable DOCX for adaptation](psychology-statistics-practice-materials-with-jamovi-open-resource-v1.0.docx)
+- [PDF for reading and printing](psychology-statistics-practice-materials-with-jamovi-open-resource-v1.1.pdf)
+- [Editable DOCX for adaptation](psychology-statistics-practice-materials-with-jamovi-open-resource-v1.1.docx)
 
 The research scenarios are fictional and the teaching data are synthetic. No real participant, student, patient, client, clinical, institutional, thesis, or restricted data are included.
 
@@ -36,7 +38,9 @@ The PDF and DOCX are licensed under the [Creative Commons Attribution 4.0 Intern
 
 Suggested attribution:
 
-> Karlson, Nicholas Elliott. *Psychology Statistics Practice Materials with Jamovi: Model Choice, Worked Solutions, and Scientific Evidence*, Version 1.0, 2026. Licensed CC BY 4.0. https://github.com/nicholaskarlson/data
+> Karlson, Nicholas Elliott. *Psychology Statistics Practice Materials with Jamovi: Model Choice, Worked Solutions, and Scientific Evidence*, Version 1.1, 2026. https://doi.org/10.5281/zenodo.22262048. Licensed CC BY 4.0.
+
+The three CSV studies used by the resource are recomputed independently by `scripts/verify_resource_numbers.py`, including the two summary-defined teaching variants. Run `make audit` for the focused numerical check or `make verify` for the complete repository gate.
 
 ## Integrity
 
@@ -44,8 +48,8 @@ SHA-256 checksums are recorded in [SHA256SUMS](SHA256SUMS):
 
 | File | SHA-256 |
 | --- | --- |
-| DOCX | `38e71ca90497e9d8d656c6bd7f856264d72cc717b5676cf8327de8ce041db95b` |
-| PDF | `3d605241d97a695a8fe1ba1a8d211cc0b0081e5cfe58d2ad8a481088458dab2a` |
+| DOCX | `8fee3c19f931437e7f98b646480c5684c55bb9ff9ca6ab6ae6db04a59b43287b` |
+| PDF | `a4851c004fb543edb837c5d87b2dbe05820ffb2be4c8015c4bdc5bf9b1e46727` |
 
 ## Questions, Corrections, and Improvements
 
