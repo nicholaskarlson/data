@@ -5,6 +5,7 @@ PYTHON ?= python3
 verify:
 	$(PYTHON) scripts/build_errata.py --check
 	$(PYTHON) scripts/check_public_companion_release.py
+	$(PYTHON) scripts/check_open_materials.py
 	@echo "NEKPRESS_JAMOVI_COMPANION_RELEASE_OK"
 
 metadata:

@@ -1,5 +1,12 @@
 # Changelog
 
+## psychology-statistics-practice-materials-v1.0 — 2026-09-02
+
+- Published *Psychology Statistics Practice Materials with Jamovi: Model Choice, Worked Solutions, and Scientific Evidence* as a CC BY 4.0 open educational resource.
+- Added one PDF and one editable DOCX containing 11 units, 232 practice problems, and 232 fully worked solutions.
+- Added checksums, suggested attribution, repository and Discussion links, and prominent synthetic-data and privacy guidance.
+- Added the resource to the existing GitHub Pages landing page without replacing the established dataset design or changing the immutable `reader-assets-v1.0.2` payload.
+
 ## reader-assets-v1.0.2 — 2026-08-22
 
 - Recorded complete Ubuntu representative validation, including the Study 06 two-line profile plot, export, save, complete application close, file-browser reopen, output persistence, and final source-checksum checks.

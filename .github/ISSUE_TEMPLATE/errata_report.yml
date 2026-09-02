@@ -1,5 +1,5 @@
 name: Errata report
-description: Report a likely correction in the book or public companion files.
+description: Report a likely correction in a book, open educational resource, or public companion file.
 title: "Errata: "
 labels:
   - errata
@@ -12,6 +12,8 @@ body:
       options:
         - Paperback
         - Kindle
+        - Open materials PDF
+        - Open materials DOCX
         - Other print or digital format
     validations:
       required: true
@@ -26,8 +28,8 @@ body:
     id: location
     attributes:
       label: Location in your copy
-      description: For print, give the chapter and page plus any table, figure, equation, or exercise number. For Kindle, give the chapter or section and Kindle location.
-      placeholder: "For example: Chapter 17, p. 163, Check Yourself 4; or Chapter 17, Kindle location 2841"
+      description: For print or PDF, give the chapter or unit and page plus any table, figure, equation, problem, or solution number. For Kindle, give the chapter or section and Kindle location.
+      placeholder: "For example: Unit 7, p. 82, Problem 14; Chapter 17, p. 163; or Chapter 17, Kindle location 2841"
     validations:
       required: true
   - type: textarea
