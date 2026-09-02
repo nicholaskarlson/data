@@ -17,18 +17,24 @@ DOCX_NAME = "psychology-statistics-practice-materials-with-jamovi-open-resource-
 PDF_NAME = "psychology-statistics-practice-materials-with-jamovi-open-resource-v1.0.pdf"
 EXPECTED = {
     DOCX_NAME: (
-        176_867,
-        "05faf02b31f5fd3c290d3a3d5fbe4844e852223db663143b36fd1ea91c8927f0",
+        178_096,
+        "38e71ca90497e9d8d656c6bd7f856264d72cc717b5676cf8327de8ce041db95b",
     ),
     PDF_NAME: (
-        1_571_514,
-        "2812174fa67366d7d700f3ddddaaecef3453b3f7674a9eaacdec022b6f7f48db",
+        1_584_517,
+        "3d605241d97a695a8fe1ba1a8d211cc0b0081e5cfe58d2ad8a481088458dab2a",
     ),
 }
 EXPECTED_MEMBERS = {"README.md", "SHA256SUMS", DOCX_NAME, PDF_NAME}
 REPOSITORY_URL = "https://github.com/nicholaskarlson/data"
 DISCUSSIONS_URL = f"{REPOSITORY_URL}/discussions"
 LICENSE_URL = "https://creativecommons.org/licenses/by/4.0/"
+BOOK_LINKS = {
+    "Psychology Research Methods and Statistics by Design with Jamovi": "https://www.amazon.com/dp/B0HG9VV1JR",
+    "Psychological Statistics by Design": "https://www.amazon.com/dp/B0HCMCKR7X",
+    "Applied Statistics with Python and R": "https://www.amazon.com/dp/B0H996LF88",
+    "Before You Hire a Statistician": "https://www.amazon.com/dp/B0H661RV6B",
+}
 
 
 def fail(message: str) -> None:
@@ -104,6 +110,8 @@ for required in (
     "Creative Commons Attribution 4.0 International",
     REPOSITORY_URL,
     "synthetic teaching data",
+    "Optional Books for Deeper Study",
+    *BOOK_LINKS,
 ):
     if required not in docx_text:
         fail(f"DOCX lacks required public-release text: {required!r}")
@@ -118,7 +126,7 @@ for forbidden in (
     if forbidden.lower() in docx_text.lower():
         fail(f"DOCX contains private-development language: {forbidden!r}")
 
-for required_link in (REPOSITORY_URL, DISCUSSIONS_URL, LICENSE_URL):
+for required_link in (REPOSITORY_URL, DISCUSSIONS_URL, LICENSE_URL, *BOOK_LINKS.values()):
     if required_link not in document_relationships:
         fail(f"DOCX lacks required live hyperlink: {required_link}")
 
@@ -131,6 +139,7 @@ for required in (
     "11 units",
     "232 practice problems",
     "232 fully worked solutions",
+    "Optional Books for Deeper Study",
     "Creative Commons Attribution 4.0 International License",
     LICENSE_URL,
     REPOSITORY_URL,

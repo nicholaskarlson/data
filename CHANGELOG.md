@@ -4,6 +4,7 @@
 
 - Published *Psychology Statistics Practice Materials with Jamovi: Model Choice, Worked Solutions, and Scientific Evidence* as a CC BY 4.0 open educational resource.
 - Added one PDF and one editable DOCX containing 11 units, 232 practice problems, and 232 fully worked solutions.
+- Corrected the canonical Version 1.0 PDF and DOCX after the initial public upload inadvertently used the pre-four-book export; the current 145-page edition includes the optional-reading guide, four public Amazon links, and four bibliography entries.
 - Added checksums, suggested attribution, repository and Discussion links, and prominent synthetic-data and privacy guidance.
 - Added the resource to the existing GitHub Pages landing page without replacing the established dataset design or changing the immutable `reader-assets-v1.0.2` payload.
 
