@@ -1,18 +1,19 @@
 # NEKpress Reader Community
 
-This repository provides bounded public support for the NEKpress synthetic teaching datasets and the workflows published with them. It is a place to make the companion materials clearer and more reliable—not a general statistical-advice service.
+This repository provides bounded public support for the NEKpress synthetic teaching datasets, published workflows, and open educational resources. It is a place to make the public materials clearer and more reliable—not a general statistical-advice service.
 
 ## Choose the right pathway
 
 - Check [ERRATA.md](ERRATA.md) for verified corrections.
 - Use [GitHub Issues](https://github.com/nicholaskarlson/data/issues/new/choose) to report a likely erratum, a reproducible jamovi output mismatch, a broken link, a defect, or a narrow question about a named public companion file.
 - Use [Using the Datasets](https://github.com/nicholaskarlson/data/discussions/categories/using-the-datasets) for questions about importing a public CSV, reading its dictionary, following a published workflow, or comparing output with a verified result record.
-- Use [Ideas and Teaching Feedback](https://github.com/nicholaskarlson/data/discussions/categories/ideas-and-teaching-feedback) to suggest synthetic teaching datasets, documentation improvements, accessibility changes, or future public topics.
+- Use [Ideas and Teaching Feedback](https://github.com/nicholaskarlson/data/discussions/categories/ideas-and-teaching-feedback) to suggest synthetic teaching datasets, improvements to the open practice materials, documentation improvements, accessibility changes, or future public topics.
 - Read [Announcements](https://github.com/nicholaskarlson/data/discussions/categories/announcements) for verified corrections, releases, and companion-file updates.
 
 ## What belongs here
 
 - Questions about the public synthetic datasets, dictionaries, analysis matrix, and verified result records.
+- Corrections, accessibility suggestions, and teaching feedback about the published open practice materials.
 - Questions about reproducing a workflow that is already published in the book or repository.
 - Reproducible differences between published instructions and official jamovi Desktop output.
 - Suggestions that could improve the public materials for readers, students, or instructors.

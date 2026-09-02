@@ -3,13 +3,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        Use this category to suggest public teaching datasets, workflow improvements, accessibility changes, or future companion topics. Keep examples synthetic and do not post private data.
+        Use this category to suggest public teaching datasets, improvements to the open practice materials, workflow improvements, accessibility changes, or future companion topics. Keep examples synthetic and do not post private data.
   - type: dropdown
     id: feedback_area
     attributes:
       label: Area
       options:
         - New synthetic teaching dataset
+        - Open practice materials
         - Teaching workflow
         - Documentation
         - Accessibility
