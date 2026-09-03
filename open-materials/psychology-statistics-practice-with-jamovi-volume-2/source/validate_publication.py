@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import subprocess
 import zipfile
 from pathlib import Path
 from xml.etree import ElementTree as ET
@@ -16,6 +17,7 @@ TITLE = "Psychology Statistics Practice Materials with Jamovi, Volume 2"
 SUBTITLE = "Categorical, Rank-Based, Quasi-Experimental, and Single-Case Evidence"
 DOI = "10.5281/zenodo.22286929"
 DOI_URL = f"https://doi.org/{DOI}"
+RUNNING_TITLE = TITLE
 WORD_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 
 
@@ -29,6 +31,7 @@ def validate_docx(path: Path) -> None:
             if archive.testzip() is not None:
                 fail("DOCX package is corrupt")
             document_xml = archive.read("word/document.xml")
+            settings_xml = archive.read("word/settings.xml")
             relationships = archive.read("word/_rels/document.xml.rels").decode("utf-8")
             core = archive.read("docProps/core.xml").decode("utf-8")
             names = set(archive.namelist())
@@ -39,6 +42,10 @@ def validate_docx(path: Path) -> None:
             )
     except (KeyError, zipfile.BadZipFile) as exc:
         fail(f"DOCX package error: {exc}")
+
+    settings = ET.fromstring(settings_xml)
+    if settings.find(f"{{{WORD_NS}}}evenAndOddHeaders") is not None:
+        fail("DOCX retains evenAndOddHeaders and can lose even-page furniture")
 
     root = ET.fromstring(document_xml)
     paragraphs = root.findall(f".//{{{WORD_NS}}}body/{{{WORD_NS}}}p")
@@ -138,6 +145,34 @@ def validate_pdf(path: Path) -> None:
     for required in (TITLE, SUBTITLE, DOI, "Unit 12:", "Unit 15:", "About the Author"):
         if required not in text:
             fail(f"PDF text lacks: {required}")
+
+    # pypdf intentionally omits page furniture from extracted page text, so
+    # inspect Poppler's layout text for this pagination gate.
+    try:
+        result = subprocess.run(
+            ["pdftotext", "-layout", str(path), "-"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except (OSError, subprocess.CalledProcessError) as exc:
+        fail(f"could not inspect PDF page furniture: {exc}")
+    rendered_pages = result.stdout.split("\f")
+    if rendered_pages and not rendered_pages[-1].strip():
+        rendered_pages.pop()
+    if len(rendered_pages) != len(reader.pages):
+        fail("pdftotext page count differs from the PDF page tree")
+
+    # The physical cover is intentionally unnumbered.  Every subsequent page
+    # must carry the running title and a footer equal to its physical page
+    # number.  This catches the even-page regression inherited from the Volume
+    # 1 reference DOCX as well as missing or stale page fields.
+    for page_number, rendered in enumerate(rendered_pages[1:], start=2):
+        if RUNNING_TITLE not in rendered:
+            fail(f"PDF page {page_number} lacks the running title")
+        nonempty_lines = [line.strip() for line in rendered.splitlines() if line.strip()]
+        if not nonempty_lines or nonempty_lines[-1] != str(page_number):
+            fail(f"PDF page {page_number} lacks its physical page number")
 
     links: set[str] = set()
     for page in reader.pages:

@@ -48,7 +48,8 @@ pandoc \
 
 "$PYTHON_BIN" "$SOURCE_DIR/postprocess_docx.py" "$BUILD_DIR/$DOCX_NAME"
 
-# SOURCE_DATE_EPOCH removes current-clock drift from LibreOffice metadata.
+# SOURCE_DATE_EPOCH is provided for tools that honor it.  LibreOffice still
+# writes its PDF creation timestamp from the build clock, so PDF bytes may vary.
 SOURCE_DATE_EPOCH=1788393600 \
 HOME="$LO_PROFILE" \
 soffice --headless \
