@@ -21,7 +21,7 @@ EXTRA_MEMBERS = (
 
 
 def add_bytes(archive: zipfile.ZipFile, name: str, data: bytes) -> None:
-    info = zipfile.ZipInfo(name, date_time=(2026, 8, 21, 0, 0, 0))
+    info = zipfile.ZipInfo(name, date_time=(2026, 9, 3, 0, 0, 0))
     info.compress_type = zipfile.ZIP_STORED
     info.create_system = 3
     info.external_attr = (0o100644 & 0xFFFF) << 16
