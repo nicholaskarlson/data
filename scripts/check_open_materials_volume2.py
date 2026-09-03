@@ -28,12 +28,12 @@ PDF_NAME = (
 )
 EXPECTED = {
     DOCX_NAME: (
-        113_727,
-        "47d523bdf888c0200b40787639879171a48e68ce3346ce46991800d89b7c3ffc",
+        113_714,
+        "5a506776db2753b4a6080139f2e5ec8be4e98d4fa53787227ea085e83fc21925",
     ),
     PDF_NAME: (
-        917_156,
-        "d90ef679ea723ebea109a2b047819e12ea80013c3f9c07c27a21fd02a3542828",
+        922_582,
+        "2684cf61e0e014d06f04b12d54e2b61ac0250e589b650374a1a1d6032c20d549",
     ),
 }
 EXPECTED_MEMBERS = {
@@ -132,16 +132,25 @@ try:
         required_docx_members = {
             "[Content_Types].xml",
             "word/document.xml",
+            "word/settings.xml",
             "word/_rels/document.xml.rels",
             "docProps/core.xml",
         }
         if not required_docx_members.issubset(archive.namelist()):
             fail("DOCX lacks required package members")
         document_xml = archive.read("word/document.xml")
+        settings_xml = archive.read("word/settings.xml")
         document_relationships = archive.read("word/_rels/document.xml.rels").decode("utf-8")
         core_properties = archive.read("docProps/core.xml").decode("utf-8")
 except zipfile.BadZipFile as exc:
     fail(f"DOCX is not a valid ZIP package: {exc}")
+
+try:
+    settings_root = ElementTree.fromstring(settings_xml)
+except ElementTree.ParseError as exc:
+    fail(f"DOCX settings XML is invalid: {exc}")
+if any(node.tag.endswith("}evenAndOddHeaders") for node in settings_root.iter()):
+    fail("DOCX retains evenAndOddHeaders and can lose even-page furniture")
 
 try:
     document_root = ElementTree.fromstring(document_xml)
@@ -280,7 +289,13 @@ source_requirements = {
     "meta.yaml": (VOLUME_2_DOI, "3 September 2026"),
     "meta_docx.yaml": (VOLUME_2_DOI, "3 September 2026"),
     "build.sh": (VOLUME_2_DOI, "UseTaggedPDF", "pdffonts"),
-    "validate_publication.py": (VOLUME_2_DOI, "StructTreeRoot", "repeating header row"),
+    "postprocess_docx.py": ("evenAndOddHeaders",),
+    "validate_publication.py": (
+        VOLUME_2_DOI,
+        "StructTreeRoot",
+        "repeating header row",
+        "physical page number",
+    ),
 }
 for relative, markers in source_requirements.items():
     text = (source_dir / relative).read_text(encoding="utf-8")

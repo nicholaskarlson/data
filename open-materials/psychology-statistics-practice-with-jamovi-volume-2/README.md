@@ -73,8 +73,8 @@ SHA-256 checksums are recorded in [SHA256SUMS](SHA256SUMS):
 
 | File | SHA-256 |
 | --- | --- |
-| DOCX | `47d523bdf888c0200b40787639879171a48e68ce3346ce46991800d89b7c3ffc` |
-| PDF | `d90ef679ea723ebea109a2b047819e12ea80013c3f9c07c27a21fd02a3542828` |
+| DOCX | `5a506776db2753b4a6080139f2e5ec8be4e98d4fa53787227ea085e83fc21925` |
+| PDF | `2684cf61e0e014d06f04b12d54e2b61ac0250e589b650374a1a1d6032c20d549` |
 
 ## Questions, Corrections, and Improvements
 

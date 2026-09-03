@@ -20,6 +20,7 @@
 - Added a dependency-free numerical audit that independently recomputes 355 checks from the four raw CSV studies and all five teaching variants; `make audit-volume2` and the complete `make verify` gate run it.
 - Added a byte-pinned release check with public-release text, live-hyperlink, core-property, tagged-PDF, source-inventory, and repository-surface requirements for version DOI `10.5281/zenodo.22286929`.
 - Published the Markdown source, release metadata, and hardened atomic builder, and added the resource to the GitHub Pages landing page, SUPPORT.md, and COMMUNITY.md without altering the Volume 1 release.
+- Removed the inherited even/odd header switch from the Volume 1 reference DOCX so every page after the cover carries the Volume 2 running title and its physical page number; the builder and release checks now fail closed on any recurrence.
 
 ## psychology-statistics-practice-materials-v1.1 — 2026-09-03
 

@@ -275,6 +275,14 @@ properties.created = FIXED_TIME
 properties.modified = FIXED_TIME
 properties.revision = 1
 
+# Volume 1's DOCX is the Pandoc reference document and carries
+# ``evenAndOddHeaders``.  If that switch survives, Word and LibreOffice apply
+# our default header and footer to odd pages only, leaving every even page
+# without its running title or page number.
+settings = document.settings.element
+for node in settings.findall(qn("w:evenAndOddHeaders")):
+    settings.remove(node)
+
 for section in document.sections:
     section.top_margin = Inches(0.85)
     section.bottom_margin = Inches(0.8)
