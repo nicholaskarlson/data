@@ -8,8 +8,8 @@ Reader assets for *Psychology Research Methods and Statistics by Design with Jam
 - Author: Nicholas Elliott Karlson
 - Reader download: `https://github.com/nicholaskarlson/data`
 - Canonical repository: `https://github.com/nicholaskarlson/nekpress-psychology-methods-statistics-jamovi-companion`
-- Release line: `reader-assets-v1.0.2`
-- Immutable prior releases: `reader-assets-v1` and `reader-assets-v1.0.1`
+- Release line: `reader-assets-v1.0.3`
+- Immutable prior releases: `reader-assets-v1`, `reader-assets-v1.0.1`, and `reader-assets-v1.0.2`
 
 ## Start Here
 
@@ -26,7 +26,7 @@ The short repository is a verified reader-facing mirror. This longer companion r
 - `RELEASE_MANIFEST.json`: the exact release inventory, byte sizes, and SHA-256 hashes.
 - `releases/`: instructions for building and validating the reader-assets archive.
 
-Run `make verify` to check the complete release, or `make release` to produce `dist/nekpress-jamovi-companion-reader-assets-v1.0.2.zip`.
+Run `make verify` to check the complete release, or `make release` to produce `dist/nekpress-jamovi-companion-reader-assets-v1.0.3.zip`.
 
 ## Software Scope
 
@@ -34,7 +34,7 @@ The workflows use official jamovi Desktop. The verified Ubuntu environment repor
 
 Ubuntu representative validation was completed on 22 August 2026. The record confirms the exact release bundle and environment; Study 01 descriptives; Study 02 paired inference; Study 07 correlation and regression; Study 05 factorial ANOVA; the Study 06 parametric mixed repeated-measures ANOVA; the two-line group-by-week plot; and export, save, complete application close, file-browser reopen, output persistence, and final source-checksum checks. The Windows and macOS instructions are designed around the same CSV-first interface but remain release-candidate workflows until representative validation is recorded. Report a reproducible platform difference through an issue rather than assuming that menu wording is identical in every build.
 
-The `reader-assets-v1.0.2` patch records the Ubuntu statistical validation and corrects Study 06 sphericity values to match jamovi's mixed repeated-measures calculation. It preserves the same 12 synthetic datasets, 12 dictionaries, and six committed figures as the immutable `reader-assets-v1` and `reader-assets-v1.0.1` releases; only the Study 06 verified result record and release metadata change.
+The `reader-assets-v1.0.3` patch corrects the Study 09 verified-result label to match jamovi: epsilon-squared is *H* / (*N* - 1), while (*H* - *k* + 1) / (*N* - *k*) is retained as a separately named bias-adjusted rank effect size. It preserves the same 12 synthetic datasets, 12 dictionaries, and six committed figures as the immutable prior releases; only the Study 09 verified result record and release metadata change.
 
 ## Data and Support Boundary
 

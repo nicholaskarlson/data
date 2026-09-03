@@ -13,7 +13,7 @@ This repository provides bounded public support for the NEKpress synthetic teach
 ## What belongs here
 
 - Questions about the public synthetic datasets, dictionaries, analysis matrix, and verified result records.
-- Corrections, accessibility suggestions, and teaching feedback about the published open practice materials.
+- Corrections, accessibility suggestions, and teaching feedback about the published open practice materials, in Volume 1 (Units 1-11) or Volume 2 (Units 12-15).
 - Questions about reproducing a workflow that is already published in the book or repository.
 - Reproducible differences between published instructions and official jamovi Desktop output.
 - Suggestions that could improve the public materials for readers, students, or instructors.

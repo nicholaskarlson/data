@@ -5,5 +5,9 @@ authors:
   - family-names: "Karlson"
     given-names: "Nicholas Elliott"
 repository-code: "https://github.com/nicholaskarlson/nekpress-psychology-methods-statistics-jamovi-companion"
-version: "1.0.2"
-date-released: "2026-08-22"
+version: "1.0.3"
+date-released: "2026-09-03"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22286929"
+    description: "Psychology Statistics Practice Materials with Jamovi, Volume 2, Version 1.0"

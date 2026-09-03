@@ -1,0 +1,32 @@
+---
+title: "Psychology Statistics Practice Materials with Jamovi, Volume 2"
+subtitle: "Categorical, Rank-Based, Quasi-Experimental, and Single-Case Evidence"
+author: "Nicholas Elliott Karlson"
+date: "Problems and Worked Solutions - Version 1.0 - 3 September 2026"
+lang: en-US
+papersize: letter
+fontsize: 11pt
+geometry: "top=1in,bottom=1in,left=1.15in,right=1.15in"
+linestretch: 1.08
+subject: "Categorical, Rank-Based, Quasi-Experimental, and Single-Case Evidence - Version 1.0 - DOI 10.5281/zenodo.22286929"
+description: "CC BY 4.0 open educational resource with four units, 96 problems, 96 worked solutions, synthetic data, and independently verified results. DOI 10.5281/zenodo.22286929."
+keywords:
+  - "10.5281/zenodo.22286929"
+  - "CC BY 4.0"
+  - "jamovi"
+  - "psychology statistics"
+colorlinks: true
+linkcolor: "black"
+urlcolor: "black"
+toc: false
+secnumdepth: 0
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhf{}
+  - \fancyhead[C]{\footnotesize Psychology Statistics Practice Materials with Jamovi, Volume 2}
+  - \fancyfoot[C]{\footnotesize\thepage}
+  - \renewcommand{\headrulewidth}{0.4pt}
+  - \usepackage{longtable,booktabs}
+  - \setlength{\emergencystretch}{3em}
+---

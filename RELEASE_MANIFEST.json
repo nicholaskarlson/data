@@ -8,14 +8,14 @@
   },
   "files": [
     {
-      "bytes": 7090,
+      "bytes": 7216,
       "path": "ANALYSIS_MATRIX.md",
-      "sha256": "c6a31f56e936d0f3cee592154307d4af7f170a4037f488e3631fdb68b5ed77cb"
+      "sha256": "2332ae9c7d229d77fc5c8d9a840e7186258d2b44a6e42b585e2bb958d8a97bc0"
     },
     {
-      "bytes": 439,
+      "bytes": 598,
       "path": "CITATION.cff",
-      "sha256": "70233bc91a6161b6b42b90e9ae8ba22ecff49a3f385961494e3470cce855fddf"
+      "sha256": "533c0dd88647a8d060a9bec8546b2b33709501cce18f4e283d133d2d8901a057"
     },
     {
       "bytes": 714,
@@ -28,9 +28,9 @@
       "sha256": "cd2c74dd682ca12da28ec9314466a3ec0170bc64335dbec6eabdc6686f9ad123"
     },
     {
-      "bytes": 4098,
+      "bytes": 4145,
       "path": "README.md",
-      "sha256": "c085058d2ddfd8322c730ecacf3909fb53e7fa8978730ed5c67e595650cbd1a0"
+      "sha256": "22497f627fd47c4210942baabaed3b026265eba4dac9972d8503ecd75a03e5bc"
     },
     {
       "bytes": 607,
@@ -203,9 +203,9 @@
       "sha256": "ef30cfe579a03539474b646322c07bbe2813a8b70482f2619b6ea994e2d28e2a"
     },
     {
-      "bytes": 4255,
+      "bytes": 4397,
       "path": "expected-results/study_09_skewed_wellbeing_nonparametric_verified_results.json",
-      "sha256": "e975a6f5dbf7efb78f9b33550dae07f80a213515e6d498d1b9f02d64f0b68c4a"
+      "sha256": "429db08ae6b843194fbcf6f146e47a7050764c4ab3cdabbefccba34528c09c2a"
     },
     {
       "bytes": 5693,
@@ -258,9 +258,9 @@
       "sha256": "e672ae35723bad44923ab9977de120f6c8378fb5b029b801f3be1d572619b6af"
     },
     {
-      "bytes": 789,
+      "bytes": 799,
       "path": "releases/README.md",
-      "sha256": "93bc166df0705a2815c564eecef65fd4e02036c40b71753c4adace55b5eb6851"
+      "sha256": "7ba9c38707e9c93725df2ce9c12ed6441a870b550acd1f9a4d55ee7573c4141b"
     }
   ],
   "platform_validation": {
@@ -268,8 +268,8 @@
     "ubuntu": "passed - representative matrix and export/save/close/reopen completed 2026-08-22",
     "windows": "release-candidate instructions; representative validation pending"
   },
-  "public_repository_base_main_sha": "01b56f25cad425a037cb08c44d76c1a4c2393801",
-  "release_date": "2026-08-22",
-  "release_id": "reader-assets-v1.0.2",
+  "public_repository_base_main_sha": "be7f53b68b8ccb32911aae7dd9bc77be1e8f0812",
+  "release_date": "2026-09-03",
+  "release_id": "reader-assets-v1.0.3",
   "schema_version": "1.0"
 }

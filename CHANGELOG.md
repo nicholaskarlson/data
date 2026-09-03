@@ -1,5 +1,26 @@
 # Changelog
 
+## reader-assets-v1.0.3 — 2026-09-03
+
+- Corrected the Study 09 verified-result definition to match jamovi jmv 28.2.0: epsilon-squared is *H* / (*N* - 1), giving 0.302 for the complete file and 0.325 for the row-filter teaching variant.
+- Retained (*H* - *k* + 1) / (*N* - *k*) under the separate label `bias_adjusted_rank_effect_size`, giving 0.291 and 0.314, so the prior calculation remains available without being mislabeled as jamovi output.
+- Updated the Study 09 checksum, release manifest, analysis matrix, citation metadata, and deterministic reader-assets bundle while preserving all 12 CSV datasets, all 12 dictionaries, and all six figures byte-for-byte.
+- Preserved the immutable `reader-assets-v1`, `reader-assets-v1.0.1`, and `reader-assets-v1.0.2` releases.
+
+## psychology-statistics-practice-materials-volume-2-v1.0 — 2026-09-03
+
+- Published *Psychology Statistics Practice Materials with Jamovi, Volume 2: Categorical, Rank-Based, Quasi-Experimental, and Single-Case Evidence* as a CC BY 4.0 open educational resource.
+- Added one PDF and one editable DOCX containing 4 units, 96 practice problems, and 96 fully worked solutions, numbered Units 12 through 15 in continuation of Volume 1.
+- Closed the coverage gap between Volume 1 and the standard first-course syllabus: Volume 1 stopped at comparing three or more conditions, leaving `study_08` through `study_11` without open practice material despite having published dictionaries and verified result records.
+- Unit 12 uses `study_08_help_seeking_categorical` for contingency tables, the chi-square test of independence, expected counts, and Cramér's V, with two prior-support subsets that hold the effect size near constant while the *p* value moves from .001 to .095.
+- Unit 13 uses `study_09_skewed_wellbeing_nonparametric` for Kruskal-Wallis with tie correction, jamovi epsilon-squared, a separately named bias-adjusted rank effect size, and Holm-adjusted Mann-Whitney comparisons. The outlier-deleted variant raises the statistic from 39.573 to 41.560, jamovi epsilon-squared from 0.302 to 0.325, and the bias-adjusted quantity from 0.291 to 0.314.
+- Unit 14 uses `study_10_developmental_emotion_recognition` for one-way ANOVA, Bonferroni comparisons, and covariate adjustment, contrasting the total age difference of 13.006 points with the vocabulary-held-fixed coefficient of 8.917 and distinguishing multiplicity adjustment from covariate adjustment.
+- Unit 15 uses `study_11_single_case_habit_tracking` for phase descriptives, ordinal frequencies, and nonoverlap of all pairs, including a hand-computed NAP with the half-credit tie rule and an explicit rejection of an independent-samples test applied to 28 days of one case.
+- All five teaching variants are filters on the four published CSV files and require no new data file.
+- Added a dependency-free numerical audit that independently recomputes 355 checks from the four raw CSV studies and all five teaching variants; `make audit-volume2` and the complete `make verify` gate run it.
+- Added a byte-pinned release check with public-release text, live-hyperlink, core-property, tagged-PDF, source-inventory, and repository-surface requirements for version DOI `10.5281/zenodo.22286929`.
+- Published the Markdown source, release metadata, and hardened atomic builder, and added the resource to the GitHub Pages landing page, SUPPORT.md, and COMMUNITY.md without altering the Volume 1 release.
+
 ## psychology-statistics-practice-materials-v1.1 — 2026-09-03
 
 - Embedded the reserved version DOI `10.5281/zenodo.22262048` in the editable DOCX, print-ready PDF, resource README, and public landing page.

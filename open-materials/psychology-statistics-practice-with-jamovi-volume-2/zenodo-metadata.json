@@ -1,0 +1,35 @@
+{
+  "access_right": "open",
+  "creators": [
+    {
+      "name": "Karlson, Nicholas Elliott"
+    }
+  ],
+  "description": "A CC BY 4.0 open lesson containing four units, 96 practice problems, 96 fully worked solutions, synthetic teaching data, and independently verified results. Units 12-15 extend Volume 1 into categorical outcomes, rank-based comparisons, quasi-experimental evidence, and single-case designs.",
+  "doi": "10.5281/zenodo.22286929",
+  "imprint_publisher": "NEKpress Research",
+  "keywords": [
+    "jamovi",
+    "psychology statistics",
+    "open educational resource",
+    "categorical analysis",
+    "rank-based analysis",
+    "quasi-experimental design",
+    "single-case design",
+    "synthetic data",
+    "worked solutions"
+  ],
+  "language": "eng",
+  "license": "cc-by-4.0",
+  "publication_date": "2026-09-03",
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.22262048",
+      "relation": "isSupplementTo",
+      "scheme": "doi"
+    }
+  ],
+  "title": "Psychology Statistics Practice Materials with Jamovi, Volume 2: Categorical, Rank-Based, Quasi-Experimental, and Single-Case Evidence",
+  "upload_type": "lesson",
+  "version": "1.0"
+}

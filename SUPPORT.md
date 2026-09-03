@@ -3,7 +3,7 @@
 Use GitHub Issues for defects that need to be tracked:
 
 - Errata reports.
-- Corrections to the open practice-materials PDF or DOCX.
+- Corrections to the open practice-materials PDF or DOCX, for Volume 1 (Units 1-11) or Volume 2 (Units 12-15).
 - Narrow questions about a named public companion file that may expose an ambiguity or defect.
 - Reproducible Jamovi output mismatches.
 - Broken public links.

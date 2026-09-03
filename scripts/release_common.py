@@ -8,10 +8,10 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RELEASE_ID = "reader-assets-v1.0.2"
-RELEASE_DATE = "2026-08-22"
-PUBLIC_BASE_SHA = "01b56f25cad425a037cb08c44d76c1a4c2393801"
-CITATION_VERSION = "1.0.2"
+RELEASE_ID = "reader-assets-v1.0.3"
+RELEASE_DATE = "2026-09-03"
+PUBLIC_BASE_SHA = "be7f53b68b8ccb32911aae7dd9bc77be1e8f0812"
+CITATION_VERSION = "1.0.3"
 PLATFORM_VALIDATION = {
     "ubuntu": (
         "passed - representative matrix and export/save/close/reopen "
