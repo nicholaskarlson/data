@@ -1,0 +1,116 @@
+{
+  "balance": {
+    "maximum_absolute_after": 0.018478,
+    "maximum_absolute_before": 0.557405,
+    "standardized_mean_differences_after_weighting": {
+      "age_years": -0.018478,
+      "baseline_sbp": -0.006196,
+      "clinic_mesa": 0.010371,
+      "clinic_river": -0.001134,
+      "current_smoker": -0.004903,
+      "taking_bp_medication": -0.017264,
+      "transport_barrier": 0.008948
+    },
+    "standardized_mean_differences_before_weighting": {
+      "age_years": 0.291271,
+      "baseline_sbp": 0.211795,
+      "clinic_mesa": -0.213036,
+      "clinic_river": -0.004448,
+      "current_smoker": 0.164168,
+      "taking_bp_medication": 0.221147,
+      "transport_barrier": -0.557405
+    }
+  },
+  "dataset_sha256": "35b1d08507d8b534e57868001de89596773ec3874d57c2fd532f1d91cb94b568",
+  "estimates": {
+    "ipw_hajek_ate": {
+      "ci95_lower": -6.712971,
+      "ci95_upper": -5.584126,
+      "estimate": -6.148548,
+      "se": 0.287971
+    },
+    "naive_difference": {
+      "ci95_lower": -6.011916,
+      "ci95_upper": -4.632151,
+      "estimate": -5.322033,
+      "se": 0.351981
+    },
+    "negative_control_adjusted_association": {
+      "ci95_lower": 0.245723,
+      "ci95_upper": 0.373201,
+      "estimate": 0.309462,
+      "se": 0.03252
+    },
+    "outcome_regression_standardized_ate": {
+      "ci95_lower": -6.667566,
+      "ci95_upper": -5.615987,
+      "estimate": -6.141777,
+      "se": 0.26826
+    }
+  },
+  "generator_seed": 20260917,
+  "identification_note": "Either adjusted estimate requires consistency, positivity, accurate measurement, and conditional exchangeability given the prespecified measured covariates. The pre-exposure negative-control association is retained as evidence that residual confounding remains plausible.",
+  "interval_method": "Outcome-regression standardization uses an HC1 covariance and a delta-method linear contrast. IPW uses normalized arm-specific weights and a stacked propensity-plus-outcome sandwich. Intervals use 1.96 as an introductory large-sample approximation.",
+  "known_simulation_individual_effect_formula": "-4.2 - 0.85 * ((baseline_sbp - 137) / 10)",
+  "known_simulation_participant_att": -4.328183,
+  "known_simulation_sample_ate": -4.226561,
+  "n": 3200,
+  "n_joined": 1308,
+  "observed_followup_means": {
+    "nonparticipants": 136.900491,
+    "participants": 131.578458
+  },
+  "outcome_regression_coefficients": {
+    "age_per_10": 0.59887129,
+    "baseline_sbp_per_10": 6.31561977,
+    "clinic_mesa": 3.58238624,
+    "clinic_river": 1.59455656,
+    "current_smoker": 2.44079096,
+    "intercept": 135.60606876,
+    "joined_by_baseline_sbp_per_10": -0.74895425,
+    "joined_coaching": -6.11837365,
+    "taking_bp_medication": -2.16546306,
+    "transport_barrier": 0.54047587
+  },
+  "participation_rate": 0.40875,
+  "primary_environment": {
+    "numpy": "2.3.5",
+    "python": "3.12.14"
+  },
+  "propensity_coefficients": {
+    "age_per_10": 0.19336558,
+    "baseline_sbp_per_10": 0.21604276,
+    "clinic_mesa": -0.48682766,
+    "clinic_river": -0.28960643,
+    "current_smoker": 0.17988681,
+    "intercept": -0.09473474,
+    "taking_bp_medication": 0.45149161,
+    "transport_barrier": -1.26901751
+  },
+  "propensity_score_summary": {
+    "above_0_95": 0,
+    "below_0_05": 0,
+    "maximum": 0.814996,
+    "median": 0.424879,
+    "minimum": 0.062238,
+    "p01": 0.102021,
+    "p99": 0.725843
+  },
+  "reported_estimate_bias_vs_reported_sample_ate": {
+    "ipw_hajek_ate": -1.921987,
+    "naive_difference": -1.095472,
+    "outcome_regression_standardized_ate": -1.915216
+  },
+  "standardized_outcome_means": {
+    "ipw_nonparticipants": 137.264128,
+    "ipw_participants": 131.11558,
+    "outcome_regression_if_joined": 131.130385,
+    "outcome_regression_if_not_joined": 137.272161
+  },
+  "title": "Unit 5 deterministic voluntary hypertension-coaching study",
+  "weight_diagnostics": {
+    "effective_sample_size_nonparticipants": 1741.614919,
+    "effective_sample_size_participants": 1001.798038,
+    "maximum_observed_weight": 16.067306
+  }
+}

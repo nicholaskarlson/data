@@ -1,0 +1,38 @@
+{
+  "baseline_difference_redesigned_minus_standard": 0.406792,
+  "click_score_correlation": -0.452156,
+  "dataset_sha256": "33127d2292ab8303ab78651ecb6804f47227ee2aef047f55c11b597ad554ebd5",
+  "estimates": {
+    "baseline_adjusted_itt": {
+      "ci95_lower": 3.13942,
+      "ci95_upper": 4.23528,
+      "estimate": 3.68735,
+      "se_hc1": 0.279556
+    },
+    "click_score_association": {
+      "ci95_lower": -1.487473,
+      "ci95_upper": -1.237218,
+      "estimate": -1.362345,
+      "se_hc1": 0.06384
+    },
+    "unadjusted_itt": {
+      "ci95_lower": 3.255522,
+      "ci95_upper": 4.609888,
+      "estimate": 3.932705,
+      "se_hc1": 0.345501
+    }
+  },
+  "generator_seed": 20260914,
+  "identification_note": "Random assignment identifies the effect of assignment to this interface in the synthetic cohort; it does not identify an intervention on clicks or transport to another population.",
+  "interval_method": "OLS HC1 sandwich standard errors; normal 1.96 multiplier",
+  "known_simulation_assignment_effect": 4.0,
+  "mean_score_redesigned": 71.616324,
+  "mean_score_standard": 67.683619,
+  "n": 1800,
+  "n_redesigned": 921,
+  "primary_environment": {
+    "numpy": "2.3.5",
+    "python": "3.12.14"
+  },
+  "title": "Unit 1 deterministic synthetic library-interface A/B study"
+}

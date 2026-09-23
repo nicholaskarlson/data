@@ -1,0 +1,75 @@
+{
+  "dataset_sha256": "0ebc5b2349030515802f4b287f3acd175298f1b7884d8d4e18a836b297990089",
+  "degrees_of_freedom": {
+    "aggregate_its_estimates": 30,
+    "clustered_panel_estimates": 23
+  },
+  "did_minus_its_level_change_difference": -0.003667,
+  "estimates": {
+    "comparison_series_its_level_change_hac": {
+      "ci95_lower": -1.389928,
+      "ci95_upper": -0.625679,
+      "estimate": -1.007804,
+      "se": 0.187107
+    },
+    "did_twfe_clustered": {
+      "ci95_lower": -2.118689,
+      "ci95_upper": -1.498698,
+      "estimate": -1.808693,
+      "se": 0.149853
+    },
+    "early_series_its_level_change_hac": {
+      "ci95_lower": -3.046973,
+      "ci95_upper": -2.578686,
+      "estimate": -2.812829,
+      "se": 0.114648
+    },
+    "early_series_its_slope_change_hac": {
+      "ci95_lower": -0.009669,
+      "ci95_upper": 0.022178,
+      "estimate": 0.006255,
+      "se": 0.007797
+    },
+    "preperiod_differential_slope": {
+      "ci95_lower": -0.025171,
+      "ci95_upper": 0.034318,
+      "estimate": 0.004573,
+      "se": 0.014379
+    },
+    "preperiod_placebo_did": {
+      "ci95_lower": -0.258665,
+      "ci95_upper": 0.565828,
+      "estimate": 0.153581,
+      "se": 0.199282
+    }
+  },
+  "generator_seed": 20260919,
+  "group_period_means": {
+    "comparison_before_after_change": -1.504691,
+    "difference_in_changes": -1.808692,
+    "early_adopter_post": 9.673548,
+    "early_adopter_pre": 12.986931,
+    "early_before_after_change": -3.313383,
+    "not_yet_adopter_post": 10.702355,
+    "not_yet_adopter_pre": 12.207046
+  },
+  "identification_note": "The DiD coefficient targets the average early-adopter policy effect during months 19-36 if untreated potential-outcome trends would have remained parallel, treatment versions are consistent, no anticipatory or cross-municipality effects operate, and the not-yet-adopter series is not differentially affected by other events. The treated-only ITS does not separate the policy from the same-month regional hotline or other discontinuities.",
+  "interval_method": "DiD, placebo, and pretrend intervals use municipality-clustered CR1 covariance, 24 clusters, and t(23). Aggregate interrupted-series intervals use a seasonal segmented regression with Newey-West lag 3, finite-sample scaling, and t(30).",
+  "its_level_change_difference": -1.805026,
+  "known_simulation_policy_effect": -1.7,
+  "known_simulation_regional_hotline_effect": -1.05,
+  "n_early_adopters": 12,
+  "n_months": 36,
+  "n_municipalities": 24,
+  "n_not_yet_adopters": 12,
+  "n_rows": 864,
+  "placebo_start_month": 13,
+  "policy_start_month": 19,
+  "post_months": 18,
+  "pre_months": 18,
+  "primary_environment": {
+    "numpy": "2.3.5",
+    "python": "3.12.14"
+  },
+  "title": "Unit 6 deterministic phased municipal youth-crisis policy panel"
+}

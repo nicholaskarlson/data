@@ -1,0 +1,104 @@
+{
+  "dataset_sha256": "5cb72926edd601aaeb1288a33c4394cca0a641378b74546cab9020f850c7abf2",
+  "estimates": {
+    "baseline_site_adjusted_itt": {
+      "ci95_lower": 1.270332,
+      "ci95_upper": 2.168176,
+      "estimate": 1.719254,
+      "se_hc1": 0.229042
+    },
+    "naive_attendance_association": {
+      "ci95_lower": 2.569606,
+      "ci95_upper": 3.759723,
+      "estimate": 3.164665,
+      "se_hc1": 0.303601
+    },
+    "sample_itt": {
+      "ci95_lower": 1.197365,
+      "ci95_upper": 2.249917,
+      "estimate": 1.723641,
+      "se_hc1": 0.268508
+    },
+    "sample_site_standardized_itt": {
+      "ci95_lower": 1.413522,
+      "ci95_upper": 2.435735,
+      "estimate": 1.924629,
+      "se_hc1": 0.260769
+    },
+    "site_adjusted_itt": {
+      "ci95_lower": 1.410168,
+      "ci95_upper": 2.435106,
+      "estimate": 1.922637,
+      "se_hc1": 0.261464
+    },
+    "target_standardized_itt": {
+      "ci95_lower": 1.824818,
+      "ci95_upper": 3.050782,
+      "estimate": 2.4378,
+      "se_hc1": 0.312746
+    }
+  },
+  "generator_seed": 20260915,
+  "identification_note": "Bernoulli randomization identifies the offer ITT in the recruited sample. The pooled and recruited-site-share standardized contrasts are different realized estimators of that sample effect. Target standardization additionally assumes site-specific effects transport to the stated target site mixture.",
+  "interval_method": "OLS HC1 within-site variances; normal 1.96 multiplier; standardized variances are sums of squared fixed sample or target weights times independent site variances",
+  "known_simulation_offer_effect_note": "Individual offer effects equal 0.4 plus a site-specific attendance effect for people who would attend if offered; the response type and structural effects are unavailable from the analyst CSV.",
+  "n": 2400,
+  "n_attended": 585,
+  "n_offered": 1184,
+  "primary_environment": {
+    "numpy": "2.3.5",
+    "python": "3.12.14"
+  },
+  "sample_site_weights": {
+    "Cedar": 0.5,
+    "Lake": 0.3,
+    "Ridge": 0.2
+  },
+  "site_itt_estimates": {
+    "Cedar": {
+      "ci95_lower": 0.690988,
+      "ci95_upper": 2.090431,
+      "estimate": 1.39071,
+      "se_hc1": 0.357001
+    },
+    "Lake": {
+      "ci95_lower": 0.533013,
+      "ci95_upper": 2.414388,
+      "estimate": 1.4737,
+      "se_hc1": 0.479943
+    },
+    "Ridge": {
+      "ci95_lower": 2.719403,
+      "ci95_upper": 5.152234,
+      "estimate": 3.935818,
+      "se_hc1": 0.62062
+    }
+  },
+  "site_offer_counts": {
+    "Cedar": 557,
+    "Lake": 365,
+    "Ridge": 262
+  },
+  "site_offer_rates": {
+    "Cedar": 0.464167,
+    "Lake": 0.506944,
+    "Ridge": 0.545833
+  },
+  "site_sample_counts": {
+    "Cedar": 1200,
+    "Lake": 720,
+    "Ridge": 480
+  },
+  "standardization_decomposition": {
+    "pooled_to_sample_site_standardized": 0.200987,
+    "pooled_to_target_standardized": 0.714159,
+    "sample_site_to_target_standardized": 0.513171
+  },
+  "target_site_weights": {
+    "Cedar": 0.25,
+    "Lake": 0.35,
+    "Ridge": 0.4
+  },
+  "title": "Unit 2 deterministic synthetic multisite randomized-offer study",
+  "uptake_among_offered": 0.494088
+}

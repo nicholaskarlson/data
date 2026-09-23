@@ -1,0 +1,36 @@
+{
+  "command": "Rscript open-materials/causal-reasoning-with-statistics/scripts/verify_in_R.R open-materials/causal-reasoning-with-statistics",
+  "dataset_sha256": "a19931d759f4c8539d86cbd5ca0cbfe35082f36dd0340f68d24d2bd4e67cb3e5",
+  "estimates": {
+    "baseline_adjusted": {
+      "ci95_lower": 1.617206,
+      "ci95_upper": 2.381859,
+      "estimate": 1.999533,
+      "se_hc1": 0.195065
+    },
+    "collider_adjusted": {
+      "ci95_lower": 4.361775,
+      "ci95_upper": 5.019992,
+      "estimate": 4.690883,
+      "se_hc1": 0.167913
+    },
+    "mediator_adjusted": {
+      "ci95_lower": 0.421086,
+      "ci95_upper": 1.380268,
+      "estimate": 0.900677,
+      "se_hc1": 0.244689
+    },
+    "naive": {
+      "ci95_lower": 7.754669,
+      "ci95_upper": 8.948504,
+      "estimate": 8.351586,
+      "se_hc1": 0.30455
+    }
+  },
+  "interpretation_limit": "Numerical agreement validates the recorded calculations on this synthetic CSV; it does not establish causal identification or real-world exchangeability.",
+  "r_version": "R version 4.1.2 (2021-11-01)",
+  "schema_version": 1,
+  "status": "verified",
+  "tolerance": 0.000002,
+  "verified_on": "2026-09-13"
+}

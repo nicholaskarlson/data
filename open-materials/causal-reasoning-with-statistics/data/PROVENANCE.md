@@ -1,0 +1,7 @@
+# Unit 3 synthetic-data provenance
+
+`psychology_memory_training.csv` is an original synthetic teaching file with 2,400 fictional rows. `scripts/generate.py` uses Python `random.Random(20260912)` and fixed structural equations in the generator and machine-readable dictionary. Python 3.12.14 produced the included byte stream; Python RNG algorithms and float formatting are not guaranteed to reproduce byte-identical output across every future interpreter, so compare the packaged CSV SHA-256 and record any local version differences. No real, copied, reconstructed, pseudonymized, or inferred participant records were used.
+
+The generator alone has access to latent fatigue and the structural parameter 2.0. The analyst's CSV does not contain either latent fatigue or potential outcomes. The primary and independent verifiers use the raw CSV and do not consult the generator. Dataset SHA-256: `a19931d759f4c8539d86cbd5ca0cbfe35082f36dd0340f68d24d2bd4e67cb3e5`.
+
+The target is the average total effect of access to the program among these fictional eligible volunteers; an actual observational study would require well-defined intervention, conditional exchangeability given accurately measured baseline memory, positivity, consistency, absence of relevant interference, and attention to selection into the study. Treatment probabilities are nonzero for every finite baseline score by design, but overlap can still be practically weak in baseline extremes. There are no missing values in this Unit 3 case, and generalization to humans is explicitly out of scope.

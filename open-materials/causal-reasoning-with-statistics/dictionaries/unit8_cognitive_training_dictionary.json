@@ -1,0 +1,42 @@
+{
+  "dataset": "unit8_cognitive_training_trial.csv",
+  "license": "CC BY 4.0",
+  "synthetic": true,
+  "contains_real_participant_data": false,
+  "generator": "scripts/generate_unit8.py",
+  "seed": 20260929,
+  "unit_of_observation": "one fictional participant in a cognitive-training trial",
+  "unit_of_assignment": "individual participant within prespecified baseline-anxiety stratum",
+  "n": 3200,
+  "dataset_sha256": "e3fe2638c706856d8157fb92f198746f209bb4cd87d7a54a4f2c78251a124bde",
+  "exposure_mechanism": "exactly half of the low-anxiety stratum and exactly half of the high-anxiety stratum are randomly assigned cognitive training after a deterministic-seed shuffle",
+  "target_estimand": "average total effect of training assignment in the eligible trial cohort, plus prespecified total effects within baseline-anxiety strata",
+  "warning": "This simulation is not a validated model of cognition, anxiety, strategy use, or training. Strategy use is post-assignment and is confounded with follow-up memory by an omitted self-regulation variable, so mediator-conditioned coefficients are not identified direct effects.",
+  "causal_structure": [
+    "random assignment affects strategy use and follow-up memory",
+    "baseline anxiety modifies the assignment effect and predicts strategy use and outcome",
+    "baseline memory predicts strategy use and outcome",
+    "latent self-regulation predicts strategy use and outcome",
+    "strategy use affects follow-up memory in the generator"
+  ],
+  "structural_equations": {
+    "training_assignment": "exactly half assigned 1 within each baseline-anxiety stratum after a deterministic-seed shuffle",
+    "strategy_use_score": "40 + 7*training_assignment + 0.18*(baseline_memory_score-50) - 2*baseline_high_anxiety + 4*latent_self_regulation + independent noise",
+    "followup_memory_score": "50 + 0.55*(baseline_memory_score-50) - 2*baseline_high_anxiety + (2.5-1.5*baseline_high_anxiety)*training_assignment + 0.45*strategy_use_score + 2.5*latent_self_regulation + independent noise"
+  },
+  "missing_value_code": "none; all six fields are complete",
+  "variables": [
+    {"name":"participant_id","type":"nominal text","role":"synthetic participant identifier","time":"before randomization","unit":"unique CT0001-CT3200"},
+    {"name":"training_assignment","type":"binary integer 0/1","role":"randomized exposure","time":"after baseline measurement and before training","unit":"1 cognitive training; 0 comparison activities"},
+    {"name":"baseline_memory_score","type":"continuous","role":"prespecified baseline prognostic covariate","time":"before randomization","unit":"score points"},
+    {"name":"baseline_high_anxiety","type":"binary integer 0/1","role":"prespecified baseline effect modifier and randomization stratum","time":"before randomization","unit":"1 high; 0 low on the fictional baseline screen"},
+    {"name":"strategy_use_score","type":"continuous","role":"post-assignment candidate mediator","time":"after training and before the primary outcome","unit":"strategy-use scale points"},
+    {"name":"followup_memory_score","type":"continuous","role":"primary outcome","time":"after strategy-use measurement at follow-up","unit":"memory score points"}
+  ],
+  "latent_variables_not_in_csv": [
+    "self-regulation: a continuous common cause of strategy use and follow-up memory",
+    "independent strategy-use noise",
+    "independent follow-up outcome noise"
+  ],
+  "site_or_time_variables": "single fictional individually randomized trial with baseline, post-training mediator, and follow-up outcome"
+}

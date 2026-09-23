@@ -1,0 +1,49 @@
+{
+  "baseline_difference_training_minus_comparison": 9.100921,
+  "baseline_quintile_training_rates": [
+    0.141667,
+    0.2875,
+    0.4625,
+    0.585417,
+    0.791667
+  ],
+  "dataset_sha256": "a19931d759f4c8539d86cbd5ca0cbfe35082f36dd0340f68d24d2bd4e67cb3e5",
+  "estimates": {
+    "baseline_adjusted": {
+      "ci95_lower": 1.617206,
+      "ci95_upper": 2.381859,
+      "estimate": 1.999533,
+      "se_hc1": 0.195065
+    },
+    "collider_adjusted": {
+      "ci95_lower": 4.361775,
+      "ci95_upper": 5.019992,
+      "estimate": 4.690883,
+      "se_hc1": 0.167913
+    },
+    "mediator_adjusted": {
+      "ci95_lower": 0.421086,
+      "ci95_upper": 1.380268,
+      "estimate": 0.900677,
+      "se_hc1": 0.244689
+    },
+    "naive": {
+      "ci95_lower": 7.754669,
+      "ci95_upper": 8.948504,
+      "estimate": 8.351586,
+      "se_hc1": 0.30455
+    }
+  },
+  "generator_seed": 20260912,
+  "identification_note": "The numerical known truth comes from the generator, not the analyst CSV.",
+  "interval_method": "OLS HC1 sandwich standard errors; normal 1.96 multiplier",
+  "known_simulation_controlled_direct_effect": 0.8,
+  "known_simulation_total_effect": 2.0,
+  "n": 2400,
+  "n_training": 1089,
+  "primary_environment": {
+    "numpy": "2.3.5",
+    "python": "3.12.14"
+  },
+  "title": "Deterministic synthetic memory-training study; not evidence about people"
+}

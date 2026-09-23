@@ -1,0 +1,32 @@
+{
+  "dataset": "unit9_multisite_replication.csv",
+  "license": "CC BY 4.0",
+  "synthetic": true,
+  "contains_real_participant_data": false,
+  "generator": "scripts/generate_unit9.py",
+  "seed": 20261002,
+  "unit_of_observation": "one fictional student in a multisite randomized replication",
+  "unit_of_assignment": "individual student within site-by-baseline-distress cell",
+  "n": 4000,
+  "dataset_sha256": "cb31d6ecb07f307e02c0e64c8470859520b94896c8fefa44b4555f6a6dce0840",
+  "assignment_mechanism": "exact 1:1 randomized assignment within each of eight site-by-baseline-distress cells after a deterministic-seed shuffle",
+  "target_estimands": "marginal intention-to-treat risk difference and risk ratio in the recruited cohort and in an externally specified target population",
+  "warning": "This is not a validated model of student wellbeing, missingness, self-report, or transport. The blinded outcome is intentionally incomplete and the self-report measure intentionally uses assignment-dependent classification parameters.",
+  "missing_value_code": "empty blinded_improvement exactly when blinded_outcome_observed equals 0; no other field is missing",
+  "variables": [
+    {"name":"participant_id","type":"nominal text","role":"synthetic participant identifier","time":"before assignment","unit":"unique MR0001-MR4000"},
+    {"name":"site","type":"nominal text","role":"randomization and standardization cell","time":"before assignment","unit":"Cedar, Lake, Ridge, or Harbor"},
+    {"name":"baseline_high_distress","type":"binary integer 0/1","role":"baseline randomization, missingness, and effect-modification cell","time":"before assignment","unit":"1 high; 0 lower distress on a fictional screen"},
+    {"name":"program_assignment","type":"binary integer 0/1","role":"randomized intervention assignment","time":"after baseline and before the program","unit":"1 digital coping program; 0 comparison resources"},
+    {"name":"blinded_outcome_observed","type":"binary integer 0/1","role":"observation indicator for the primary blinded assessment","time":"12-week follow-up","unit":"1 observed; 0 unobserved"},
+    {"name":"blinded_improvement","type":"binary integer 0/1 or empty","role":"primary outcome assessed by a blinded evaluator","time":"12-week follow-up","unit":"1 clinically meaningful improvement; 0 no improvement; empty unobserved"},
+    {"name":"self_report_improvement","type":"binary integer 0/1","role":"complete secondary outcome using a different measurement process","time":"12-week follow-up","unit":"1 self-reported improvement; 0 no self-reported improvement"}
+  ],
+  "hidden_generator_parameters": {
+    "primary_control_risk_and_risk_difference_by_cell": "recorded in scripts/generate_unit9.py and the verified result; not analyst evidence",
+    "observation": "probability depends only on assignment, site, and baseline_high_distress",
+    "self_report_sensitivity": "0.82 comparison; 0.91 program",
+    "self_report_specificity": "0.90 comparison; 0.84 program"
+  },
+  "target_population": "fixed external site-by-distress shares recorded in the verified result; no target-person microdata are included"
+}

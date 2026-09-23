@@ -1,0 +1,37 @@
+{
+  "dataset": "unit7_tutoring_encouragement.csv",
+  "license": "CC BY 4.0",
+  "synthetic": true,
+  "contains_real_participant_data": false,
+  "generator": "scripts/generate_unit7.py",
+  "seed": 20260920,
+  "unit_of_observation": "one fictional student in the tutoring encouragement experiment",
+  "unit_of_assignment": "individual student",
+  "n": 3000,
+  "dataset_sha256": "62f37ff913d10578164601f0c553850528c64750083395bd5d6daabc9637852c",
+  "exposure_mechanism": "exactly 1,500 students are randomly assigned a tutoring encouragement and 1,500 are assigned no encouragement; tutoring receipt remains incomplete in both groups",
+  "target_estimand": "complier average effect of receiving tutoring for students whose receipt is changed by randomized encouragement, under relevance, independence, exclusion, and monotonicity",
+  "warning": "This simulation is not a validated model of tutoring or student behavior. Random encouragement identifies its assignment effect; the Wald receipt effect additionally requires exclusion and monotonicity and is not automatically the population ATE.",
+  "causal_structure": [
+    "random encouragement can change tutoring receipt",
+    "principal stratum determines whether receipt responds to encouragement",
+    "tutoring receipt affects the end-term mathematics outcome",
+    "encouragement has no direct outcome effect in the generator",
+    "no generator-defined defiers are present"
+  ],
+  "structural_equations": {
+    "encouragement_assignment": "exactly half assigned 1 after a deterministic-seed shuffle",
+    "tutoring_received": "1 for always-takers; equals encouragement_assignment for compliers; 0 for never-takers",
+    "end_term_math_score": "52 + 0.46*baseline_math_score + 5.2*tutoring_received + independent noise"
+  },
+  "missing_value_code": "none; all five fields are complete",
+  "variables": [
+    {"name":"student_id","type":"nominal text","role":"synthetic student identifier","time":"before randomization","unit":"unique IV0001-IV3000"},
+    {"name":"encouragement_assignment","type":"binary integer 0/1","role":"randomized instrumental variable and assignment exposure","time":"before tutoring receipt","unit":"1 encouraged; 0 not encouraged"},
+    {"name":"tutoring_received","type":"binary integer 0/1","role":"post-assignment treatment receipt","time":"after encouragement and before the outcome","unit":"1 received tutoring; 0 did not"},
+    {"name":"baseline_math_score","type":"continuous","role":"pre-assignment prognostic covariate","time":"before randomization","unit":"score points"},
+    {"name":"end_term_math_score","type":"continuous","role":"primary outcome","time":"end of term after tutoring receipt","unit":"score points"}
+  ],
+  "latent_variables_not_in_csv": ["principal stratum: always-taker, complier, or never-taker", "independent end-term outcome noise"],
+  "site_or_time_variables": "single fictional tutoring encouragement experiment with one end-of-term outcome"
+}

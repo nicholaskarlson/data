@@ -1,0 +1,138 @@
+{
+  "datasets": {
+    "iv": {
+      "filename": "unit7_tutoring_encouragement.csv",
+      "n": 3000,
+      "sha256": "62f37ff913d10578164601f0c553850528c64750083395bd5d6daabc9637852c"
+    },
+    "rd": {
+      "filename": "unit7_tutoring_cutoff.csv",
+      "n": 2600,
+      "sha256": "f1c355714cae927978aeea95641fb7e3d96efa4b1b57f30d27522d7418c87a35"
+    }
+  },
+  "generator_seed": 20260920,
+  "identification_note": "The sharp RD coefficient identifies a local eligibility effect at score 60 if potential-outcome regressions and baseline composition are continuous there and scores are not precisely manipulated. The Wald ratio identifies a complier average effect if encouragement is relevant, randomized, affects the outcome only through tutoring receipt, and does not reduce anyone's receipt. Neither estimand is automatically the population average treatment effect.",
+  "interval_method": "RD intervals use local linear regressions with separate slopes, HC1 covariance, and a normal critical value. Encouragement ITT and first-stage intervals use randomization-group influence functions; the Wald interval uses the joint delta-method influence function and a normal critical value.",
+  "iv_design": {
+    "assignment_probability": 0.5,
+    "n_encouraged": 1500,
+    "n_not_encouraged": 1500
+  },
+  "iv_estimates": {
+    "assignment_itt": {
+      "ci95_lower": 2.337096,
+      "ci95_upper": 3.539648,
+      "estimate": 2.938372,
+      "se": 0.306779
+    },
+    "first_stage": {
+      "ci95_lower": 0.544243,
+      "ci95_upper": 0.60109,
+      "estimate": 0.572667,
+      "se": 0.014502
+    },
+    "reduced_form": {
+      "ci95_lower": 2.337096,
+      "ci95_upper": 3.539648,
+      "estimate": 2.938372,
+      "se": 0.306779
+    },
+    "wald_late": {
+      "ci95_lower": 4.120165,
+      "ci95_upper": 6.141903,
+      "estimate": 5.131034,
+      "se": 0.515759
+    }
+  },
+  "iv_first_stage_f": 1559.378814,
+  "iv_outcome_means": {
+    "encouraged": 85.728952,
+    "not_encouraged": 82.79058
+  },
+  "iv_principal_stratum_shares_implied_under_monotonicity": {
+    "always_takers": 0.112,
+    "compliers": 0.572667,
+    "never_takers": 0.315333
+  },
+  "iv_receipt_rates": {
+    "encouraged": 0.684667,
+    "not_encouraged": 0.112
+  },
+  "known_simulation_complier_effect": 5.2,
+  "known_simulation_rd_discontinuity": 4.2,
+  "primary_environment": {
+    "numpy": "2.3.5",
+    "python": "3.12.14"
+  },
+  "rd_bandwidth_sensitivity": {
+    "10": {
+      "ci95_lower": 2.660397,
+      "ci95_upper": 4.509575,
+      "estimate": 3.584986,
+      "n_local": 1776,
+      "se": 0.471738
+    },
+    "4": {
+      "ci95_lower": 2.957099,
+      "ci95_upper": 5.857031,
+      "estimate": 4.407065,
+      "n_local": 825,
+      "se": 0.739792
+    },
+    "6": {
+      "ci95_lower": 2.727184,
+      "ci95_upper": 5.105823,
+      "estimate": 3.916504,
+      "n_local": 1197,
+      "se": 0.606807
+    },
+    "8": {
+      "ci95_lower": 2.68722,
+      "ci95_upper": 4.739053,
+      "estimate": 3.713136,
+      "n_local": 1499,
+      "se": 0.523436
+    }
+  },
+  "rd_density_diagnostic": {
+    "below_to_above_ratio": 0.945545,
+    "count_immediately_above": 202,
+    "count_immediately_below": 191,
+    "normal_approximation_z": -0.554877,
+    "two_sided_p": 0.578979,
+    "window": 2.0
+  },
+  "rd_design": {
+    "cutoff": 60.0,
+    "eligibility_rule": "tutoring_eligible = 1 when diagnostic_score < 60",
+    "placebo_bandwidth": 5.0,
+    "placebo_cutoff": 70.0,
+    "prespecified_bandwidth": 6.0,
+    "running_variable": "diagnostic_score"
+  },
+  "rd_estimates": {
+    "baseline_gpa_continuity": {
+      "ci95_lower": -0.059444,
+      "ci95_upper": 0.092117,
+      "estimate": 0.016336,
+      "n_local": 1197,
+      "se": 0.038664
+    },
+    "local_linear_discontinuity": {
+      "ci95_lower": 2.727184,
+      "ci95_upper": 5.105823,
+      "estimate": 3.916504,
+      "n_local": 1197,
+      "se": 0.606807
+    },
+    "placebo_cutoff_discontinuity": {
+      "ci95_lower": -2.540606,
+      "ci95_upper": 0.693028,
+      "estimate": -0.923789,
+      "n_local": 634,
+      "se": 0.824922
+    }
+  },
+  "title": "Unit 7 deterministic tutoring threshold and encouragement studies"
+}

@@ -1,0 +1,11 @@
+# Unit 6 synthetic-data provenance
+
+`unit6_youth_crisis_policy.csv` is an original synthetic teaching panel containing 864 complete observations: 24 fictional municipalities followed for 36 months. `scripts/generate_unit6.py` uses Python `random.Random(20260919)` and the structural equations summarized in `dictionaries/unit6_youth_crisis_policy_dictionary.json`. No real, copied, reconstructed, pseudonymized, or inferred municipality or resident record was used.
+
+Twelve municipalities are designated early adopters before the observation window, with three early and three not-yet adopters in each of four fictional regions. The mobile youth-crisis response policy begins in early adopters at month 19. A separate regional hotline begins in every municipality in the same month. The outcome includes municipality levels, a common time trend, seasonality, region terms, and municipality-specific autoregressive shocks. Early adoption is not randomized.
+
+The primary analysis estimates a two-way fixed-effects difference-in-differences coefficient with municipality and month effects. Its uncertainty uses a CR1 sandwich clustered by municipality and a t reference distribution with 23 degrees of freedom. Pre-period diagnostics fit a false intervention at month 13 and an early-adopter-by-month differential slope during months 1-18. Separate early-adopter and comparison interrupted time-series regressions use level and slope changes, seasonal terms, Newey-West lag 3 covariance, finite-sample scaling, and 30 residual degrees of freedom. The same-month regional hotline is deliberately retained so a treated-only series cannot attribute its level change to the municipal policy alone.
+
+The generator's policy and hotline coefficients test computational recovery. They are hidden simulator parameters, not information available to an analyst and not evidence about real municipal policy. The standard-library Python and base-R paths independently reconstruct the design, coefficients, clustered or serial-correlation-aware uncertainty, group-period decomposition, and intervention timing.
+
+All fields are complete. Dataset SHA-256: `0ebc5b2349030515802f4b287f3acd175298f1b7884d8d4e18a836b297990089`.

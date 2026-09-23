@@ -1,0 +1,42 @@
+{
+  "dataset": "unit2_multisite_workshop_offer.csv",
+  "license": "CC BY 4.0",
+  "synthetic": true,
+  "contains_real_participant_data": false,
+  "generator": "scripts/generate_unit2.py",
+  "seed": 20260915,
+  "unit_of_observation": "one fictional recruited student at one of three campus counseling sites",
+  "n": 2400,
+  "dataset_sha256": "5cb72926edd601aaeb1288a33c4394cca0a641378b74546cab9020f850c7abf2",
+  "recruitment": "fixed synthetic recruited sample of 1200 Cedar, 720 Lake, and 480 Ridge students; not a probability sample from a real population",
+  "assignment_mechanism": "independent Bernoulli(0.50) workshop-offer assignment within each site",
+  "target_estimand": "target-standardized intention-to-treat effect of workshop_offer for a fixed target composition of 25% Cedar, 35% Lake, and 40% Ridge",
+  "target_site_weights": {"Cedar":0.25,"Lake":0.35,"Ridge":0.40},
+  "warning": "Randomization identifies offer effects in the fictional recruited sample. Target transport and treatment-receipt effects require additional assumptions.",
+  "causal_structure": [
+    "site and baseline_stress precede workshop_offer",
+    "workshop_offer -> attended_workshop -> wellbeing_after",
+    "workshop_offer -> wellbeing_after",
+    "attendance response and structural effects are hidden generator properties"
+  ],
+  "structural_equations": {
+    "baseline_stress": "50 + site mean shift + 9*N(0,1)",
+    "workshop_offer": "Bernoulli(0.50) within site",
+    "would_attend_if_offered": "Bernoulli(logit_inverse(site logit - 0.025*(baseline_stress-50))) from a latent uniform draw",
+    "attended_workshop": "workshop_offer * would_attend_if_offered; one-sided compliance",
+    "wellbeing_without_offer": "60 - 0.35*(baseline_stress-50) + site intercept + N(0,5.5^2)",
+    "wellbeing_after": "wellbeing_without_offer + 0.4*workshop_offer + site attendance effect*attended_workshop",
+    "site_attendance_effect": "Cedar 2.0; Lake 3.5; Ridge 5.0 points, hidden from the analyst"
+  },
+  "missing_value_code": "none; all six CSV fields are complete",
+  "variables": [
+    {"name":"person_id","type":"integer","role":"synthetic row identifier","time":"recruitment","unit":"unique integer 1-2400"},
+    {"name":"site","type":"nominal text","role":"pre-assignment site and transport stratum","time":"recruitment","unit":"Cedar, Lake, or Ridge"},
+    {"name":"baseline_stress","type":"continuous","role":"pre-assignment precision covariate and possible effect modifier","time":"before offer","unit":"stress-scale points"},
+    {"name":"workshop_offer","type":"binary integer 0/1","role":"randomized assignment and ITT intervention","time":"time zero","unit":"1 immediate offer; 0 information sheet"},
+    {"name":"attended_workshop","type":"binary integer 0/1","role":"post-assignment treatment receipt; not randomized","time":"workshop period","unit":"1 attended; 0 did not attend"},
+    {"name":"wellbeing_after","type":"continuous","role":"primary outcome","time":"immediately after workshop period","unit":"well-being points"}
+  ],
+  "latent_variables_not_in_csv": ["would-attend-if-offered response type", "site-specific structural attendance effects", "shared outcome noise"],
+  "site_or_time_variables": "three fictional sites; one baseline and one immediate outcome period"
+}
