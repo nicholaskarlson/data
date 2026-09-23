@@ -1,0 +1,159 @@
+{
+  "dataset_filename": "unit9_multisite_replication.csv",
+  "dataset_sha256": "cb31d6ecb07f307e02c0e64c8470859520b94896c8fefa44b4555f6a6dce0840",
+  "estimates": {
+    "crude_complete_case_blinded": {
+      "risk_comparison": 0.32417,
+      "risk_difference": 0.134921,
+      "risk_difference_ci95_lower": 0.102921,
+      "risk_difference_ci95_upper": 0.166922,
+      "risk_difference_se": 0.016327,
+      "risk_program": 0.459091,
+      "risk_ratio": 1.416206,
+      "risk_ratio_ci95_lower": 1.301313,
+      "risk_ratio_ci95_upper": 1.541244
+    },
+    "sample_standardized_blinded": {
+      "risk_comparison": 0.319716,
+      "risk_difference": 0.137757,
+      "risk_difference_ci95_lower": 0.106082,
+      "risk_difference_ci95_upper": 0.169433,
+      "risk_difference_se": 0.016161,
+      "risk_program": 0.457473,
+      "risk_ratio": 1.430875,
+      "risk_ratio_ci95_lower": 1.315226,
+      "risk_ratio_ci95_upper": 1.556694
+    },
+    "sample_standardized_self_report": {
+      "risk_comparison": 0.345,
+      "risk_difference": 0.1475,
+      "risk_difference_ci95_lower": 0.117382,
+      "risk_difference_ci95_upper": 0.177618,
+      "risk_difference_se": 0.015366,
+      "risk_program": 0.4925,
+      "risk_ratio": 1.427536,
+      "risk_ratio_ci95_lower": 1.324827,
+      "risk_ratio_ci95_upper": 1.538208
+    },
+    "target_standardized_blinded": {
+      "risk_comparison": 0.28333,
+      "risk_difference": 0.165795,
+      "risk_difference_ci95_lower": 0.1305,
+      "risk_difference_ci95_upper": 0.201089,
+      "risk_difference_se": 0.018008,
+      "risk_program": 0.449125,
+      "risk_ratio": 1.585164,
+      "risk_ratio_ci95_lower": 1.433461,
+      "risk_ratio_ci95_upper": 1.752921
+    }
+  },
+  "generator_seed": 20261002,
+  "identification_note": "Randomization is exact within site-by-distress cells. Complete-case cell standardization identifies the recruited-sample assignment effect only if blinded-outcome observation is independent of the potential outcome within assignment, site, and baseline distress. Transport additionally requires conditional effect exchangeability between the recruited sample and target, common intervention and outcome versions, and target support in every cell.",
+  "interval_method": "Wald intervals use the exact standard-normal 0.975 quantile. Standardized risks are weighted cell-specific binomial risks; risk-difference variance sums arm variances, and risk-ratio intervals use the log scale. These intervals condition on the fixed sample or target weights and do not quantify uncertainty about missingness, measurement, transportability, or the externally specified target composition.",
+  "known_simulation_observation_rule": "depends only on assignment, site, and baseline_high_distress",
+  "known_simulation_sample_primary_effect": {
+    "risk_comparison": 0.336,
+    "risk_difference": 0.145,
+    "risk_program": 0.481,
+    "risk_ratio": 1.431548
+  },
+  "known_simulation_self_report_sensitivity": {
+    "comparison": 0.82,
+    "program": 0.91
+  },
+  "known_simulation_self_report_specificity": {
+    "comparison": 0.9,
+    "program": 0.84
+  },
+  "known_simulation_target_primary_effect": {
+    "risk_comparison": 0.3011,
+    "risk_difference": 0.1636,
+    "risk_program": 0.4647,
+    "risk_ratio": 1.543341
+  },
+  "maximum_target_to_sample_weight_ratio": 2.266667,
+  "missing_outcome_risk_difference_bounds": {
+    "best_case": 0.241,
+    "worst_case": -0.006
+  },
+  "n": 4000,
+  "n_blinded_outcome_observed": 3506,
+  "n_comparison": 2000,
+  "n_program": 2000,
+  "observation_rate_difference": 0.007,
+  "observation_rates_by_assignment": {
+    "0": 0.873,
+    "1": 0.88
+  },
+  "observation_rates_by_cell_and_assignment": {
+    "Cedar|0|0": 0.932,
+    "Cedar|0|1": 0.946,
+    "Cedar|1|0": 0.815,
+    "Cedar|1|1": 0.88,
+    "Harbor|0|0": 0.91,
+    "Harbor|0|1": 0.93,
+    "Harbor|1|0": 0.833333,
+    "Harbor|1|1": 0.746667,
+    "Lake|0|0": 0.9,
+    "Lake|0|1": 0.8975,
+    "Lake|1|0": 0.855,
+    "Lake|1|1": 0.83,
+    "Ridge|0|0": 0.86,
+    "Ridge|0|1": 0.88,
+    "Ridge|1|0": 0.775,
+    "Ridge|1|1": 0.805
+  },
+  "observed_counts_by_cell_and_assignment": {
+    "Cedar|0|0": 466,
+    "Cedar|0|1": 473,
+    "Cedar|1|0": 163,
+    "Cedar|1|1": 176,
+    "Harbor|0|0": 91,
+    "Harbor|0|1": 93,
+    "Harbor|1|0": 125,
+    "Harbor|1|1": 112,
+    "Lake|0|0": 360,
+    "Lake|0|1": 359,
+    "Lake|1|0": 171,
+    "Lake|1|1": 166,
+    "Ridge|0|0": 215,
+    "Ridge|0|1": 220,
+    "Ridge|1|0": 155,
+    "Ridge|1|1": 161
+  },
+  "primary_environment": {
+    "numpy": "2.3.5",
+    "python": "3.12.14"
+  },
+  "sample_cell_counts": {
+    "Cedar|0": 1000,
+    "Cedar|1": 400,
+    "Harbor|0": 200,
+    "Harbor|1": 300,
+    "Lake|0": 800,
+    "Lake|1": 400,
+    "Ridge|0": 500,
+    "Ridge|1": 400
+  },
+  "sample_cell_weights": {
+    "Cedar|0": 0.25,
+    "Cedar|1": 0.1,
+    "Harbor|0": 0.05,
+    "Harbor|1": 0.075,
+    "Lake|0": 0.2,
+    "Lake|1": 0.1,
+    "Ridge|0": 0.125,
+    "Ridge|1": 0.1
+  },
+  "target_cell_weights": {
+    "Cedar|0": 0.12,
+    "Cedar|1": 0.1,
+    "Harbor|0": 0.08,
+    "Harbor|1": 0.17,
+    "Lake|0": 0.15,
+    "Lake|1": 0.13,
+    "Ridge|0": 0.1,
+    "Ridge|1": 0.15
+  },
+  "title": "Unit 9 deterministic multisite replication"
+}

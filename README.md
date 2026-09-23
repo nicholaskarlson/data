@@ -28,6 +28,28 @@ The short repository is a verified reader-facing mirror. This longer companion r
 
 Run `make verify` to check the complete release, or `make release` to produce `dist/nekpress-jamovi-companion-reader-assets-v1.0.3.zip`.
 
+## Book 3 companion: Causal Reasoning with Statistics
+
+`open-materials/causal-reasoning-with-statistics/` holds the computational companion for
+*Causal Reasoning with Statistics: Design, Identification, and Reproducible Evidence in
+Psychology and the Social Sciences*. It contains the ten synthetic datasets used in the
+book, their dictionaries and provenance notes, one verified numeric record per case, and
+the three independent computation paths that produce those records: a primary NumPy
+analysis, a standard-library-only Python recomputation, and a base-R recomputation. No
+account, network access or commercial software is required.
+
+```bash
+cd open-materials/causal-reasoning-with-statistics
+python3 run_all.py      # regenerate the data, recompute the records, cross-check
+Rscript run_all.R       # the third path, in base R
+```
+
+Both run without writing to the directory, so the checksums stay valid afterwards.
+`make verify-causal` runs the same checks from the repository root. The companion is
+computational material only: the manuscript, its figures and its build system are not part
+of this export. See that directory's `README.md` for what each stage proves and
+`SOURCE.json` for the authoring commit it was exported from.
+
 ## Software Scope
 
 The workflows use official jamovi Desktop. The verified Ubuntu environment reported application release 28.2, bundled modules jmv 28.2.0 and scatr 28.2.0, Flatpak metadata version 2.7.27, and Flatpak commit `3cced0e1e2519185293ddd6df38277edb93f780ee6c645f9658cd87580f9ca21`. Version labels can differ across the application, modules, packaging metadata, and official citation family; see the book’s setup chapter for the full identity note.

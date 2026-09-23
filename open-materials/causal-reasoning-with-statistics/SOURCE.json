@@ -1,0 +1,63 @@
+{
+  "addenda_added_for_book_v1_0": [
+    "unit9_expected_misclassification",
+    "unit10_structural_replay"
+  ],
+  "author": "Nicholas Elliott Karlson",
+  "authoring_commit_to_record_before_release": "1dd2d11b1fbb824b39ad0d2993c9e65ea4205b5e",
+  "authoring_files_added_in_a1": [
+    "scripts/addendum_book_revision.py",
+    "scripts/verify_addendum_independent.py",
+    "scripts/verify_addendum_in_R.R",
+    "expected-results/book_revision_addenda_verified_results.json",
+    "data/unit10_latent_engagement_replay.csv",
+    "source_unit5_result_canonical_sha256 in the Unit 10 verified record"
+  ],
+  "book_title": "Causal Reasoning with Statistics: Design, Identification, and Reproducible Evidence in Psychology and the Social Sciences",
+  "computation_paths": [
+    "primary NumPy",
+    "independent standard-library Python",
+    "base R"
+  ],
+  "datasets": 10,
+  "export_contents": [
+    "data",
+    "dictionaries",
+    "expected-results",
+    "scripts",
+    "run_all.py",
+    "run_all.R"
+  ],
+  "export_excludes": [
+    "manuscript source",
+    "figure scripts",
+    "document build and validators",
+    "authoring templates",
+    "project notes",
+    "private workflows"
+  ],
+  "export_prepared": "2026-09-23",
+  "exported_from": {
+    "commit": "1dd2d11b1fbb824b39ad0d2993c9e65ea4205b5e",
+    "note": "The datasets, dictionaries, verified records, and analysis, independent-Python, and base-R scripts are exported from this A1 numerical-synchronization commit. Public-only runners, documentation, licensing, and inventory files are listed under new_in_this_export.",
+    "path": "open-materials/causal-reasoning-with-statistics",
+    "repository": "nicholaskarlson/nekpress-causal-reasoning-with-statistics-book3-private"
+  },
+  "licence": {
+    "data_and_documentation": "CC BY 4.0",
+    "scripts": "MIT"
+  },
+  "new_in_this_export": [
+    "run_all.py",
+    "run_all.R",
+    "README.md",
+    "LICENSE",
+    "SOURCE.json",
+    "SHA256SUMS",
+    "requirements.txt"
+  ],
+  "numeric_tolerance": 2e-06,
+  "publisher": "NEKpress Research",
+  "resource": "Causal Reasoning with Statistics: computational companion",
+  "verified_result_records": 12
+}

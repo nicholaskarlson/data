@@ -1,0 +1,42 @@
+{
+  "dataset": "unit5_hypertension_coaching.csv",
+  "license": "CC BY 4.0",
+  "synthetic": true,
+  "contains_real_participant_data": false,
+  "generator": "scripts/generate_unit5.py",
+  "seed": 20260917,
+  "unit_of_observation": "one fictional adult eligible for hypertension coaching at one community clinic",
+  "unit_of_assignment": "none; coaching participation is voluntary and observational",
+  "n": 3200,
+  "dataset_sha256": "35b1d08507d8b534e57868001de89596773ec3874d57c2fd532f1d91cb94b568",
+  "exposure_mechanism": "eligible adults decide whether to join; participation depends on measured baseline characteristics and latent health engagement",
+  "target_estimand": "average 12-week difference in systolic blood pressure if every eligible adult in the fictional clinic cohort joined coaching versus if none joined",
+  "warning": "This simulation is not a validated model of hypertension or health behavior. Standardization and weighting balance only measured covariates; a pre-exposure negative-control association is retained to show that residual confounding remains plausible.",
+  "causal_structure": [
+    "age, baseline systolic blood pressure, smoking, medication, transport barrier, and clinic precede participation",
+    "measured baseline covariates affect both coaching participation and follow-up systolic blood pressure",
+    "latent health engagement affects participation, prior preventive visits, and follow-up systolic blood pressure",
+    "coaching participation affects follow-up systolic blood pressure",
+    "prior-year preventive visits precede participation and serve as a negative-control outcome"
+  ],
+  "structural_equations": {
+    "joined_coaching": "Bernoulli(logit_inverse(-0.45 + measured baseline terms + clinic terms + 0.78*latent health engagement))",
+    "prior_year_preventive_visits": "bounded continuous score driven by latent health engagement, medication, transport, clinic, and noise",
+    "followup_sbp": "baseline and clinic terms - 2.2*latent health engagement + coaching effect that varies with baseline SBP + N(0,6.8^2)"
+  },
+  "missing_value_code": "none; all ten fields are complete",
+  "variables": [
+    {"name":"participant_id","type":"nominal text","role":"synthetic participant identifier","time":"eligibility","unit":"unique P0001-P3200"},
+    {"name":"clinic","type":"nominal text","role":"pre-exposure clinic context and measured adjustment variable","time":"eligibility","unit":"Harbor, Mesa, or River"},
+    {"name":"age_years","type":"continuous","role":"measured pre-exposure covariate","time":"baseline","unit":"years"},
+    {"name":"baseline_sbp","type":"continuous","role":"measured pre-exposure confounder and effect-modification term","time":"baseline","unit":"mm Hg"},
+    {"name":"current_smoker","type":"binary integer 0/1","role":"measured pre-exposure confounder","time":"baseline","unit":"1 current smoker; 0 otherwise"},
+    {"name":"taking_bp_medication","type":"binary integer 0/1","role":"measured pre-exposure confounder","time":"baseline","unit":"1 taking blood-pressure medication; 0 otherwise"},
+    {"name":"transport_barrier","type":"binary integer 0/1","role":"measured pre-exposure confounder and participation constraint","time":"baseline","unit":"1 barrier present; 0 absent"},
+    {"name":"joined_coaching","type":"binary integer 0/1","role":"voluntary exposure; not randomized","time":"time zero","unit":"1 joined coaching; 0 did not join"},
+    {"name":"prior_year_preventive_visits","type":"continuous bounded score","role":"pre-exposure negative-control outcome and proxy for health engagement","time":"prior year","unit":"0-5 visit-equivalent score"},
+    {"name":"followup_sbp","type":"continuous","role":"primary outcome","time":"12-week follow-up","unit":"mm Hg"}
+  ],
+  "latent_variables_not_in_csv": ["health engagement", "individual outcome noise"],
+  "site_or_time_variables": "three fictional clinics; prior year, baseline, time zero, and 12-week follow-up"
+}

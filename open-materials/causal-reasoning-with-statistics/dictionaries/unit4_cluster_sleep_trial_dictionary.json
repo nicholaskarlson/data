@@ -1,0 +1,48 @@
+{
+  "dataset": "unit4_cluster_sleep_trial.csv",
+  "license": "CC BY 4.0",
+  "synthetic": true,
+  "contains_real_participant_data": false,
+  "generator": "scripts/generate_unit4.py",
+  "seed": 20260916,
+  "unit_of_observation": "one fictional student living on one randomized residence floor",
+  "unit_of_assignment": "residence floor",
+  "n": 2400,
+  "clusters": 48,
+  "students_per_cluster": 50,
+  "dataset_sha256": "bb7193e772ef1669fe6849d06ba95c802305b4d4d2ec97a75683a1763056bdf2",
+  "assignment_mechanism": "within each of four campus sectors, exactly 6 of 12 residence floors are assigned to the sleep-support program",
+  "target_estimand": "intention-to-treat effect of assigning a residence floor to offer the sleep-support program rather than usual information for the fictional enrolled cohort",
+  "warning": "This simulation is not a validated model of sleep or attention. Assignment, not observed use, is randomized; the sleep diary is a secondary measure with post-assignment missingness.",
+  "causal_structure": [
+    "campus_sector and baseline measurements precede floor assignment",
+    "floor assignment -> sleep-plan use and follow-up attention",
+    "floor assignment -> sleep-diary completion -> observed follow-up sleep",
+    "motivation affects program use, diary completion, and attention but is hidden from the analyst",
+    "students on a floor share a floor-level shock"
+  ],
+  "structural_equations": {
+    "assignment": "exactly 6 of 12 floors selected without replacement within each sector",
+    "baseline_sleep_hours": "6.8 + sector shift + 0.22*floor shock + 0.35*motivation + N(0,0.7^2)",
+    "baseline_attention_score": "65 + 1.6*(baseline sleep-6.8) + 1.8*motivation + 1.5*floor shock + N(0,5.5^2)",
+    "used_sleep_plan": "Bernoulli(logit_inverse(-2.0 + 2.8*assignment + 0.65*motivation - 0.25*(baseline sleep-6.8)))",
+    "completed_sleep_diary": "Bernoulli(logit_inverse(1.15 + 0.35*assignment + 0.45*motivation))",
+    "followup_attention_score": "31 + 0.52*baseline attention + 0.9*(baseline sleep-6.8) + 3.0*assignment + 1.2*motivation + 2.2*floor shock + sector shift + N(0,5.2^2)",
+    "followup_sleep_hours": "baseline sleep + 0.35*assignment + 0.25*motivation + 0.12*floor shock + N(0,0.55^2), observed only when the diary is completed"
+  },
+  "missing_value_code": "blank followup_sleep_hours means completed_sleep_diary=0; every other field and the primary outcome are complete",
+  "variables": [
+    {"name":"student_id","type":"nominal text","role":"synthetic student identifier","time":"enrollment","unit":"unique S0001-S2400"},
+    {"name":"campus_sector","type":"nominal text","role":"randomization block and pre-assignment context","time":"enrollment","unit":"North, East, South, or West"},
+    {"name":"residence_floor_id","type":"nominal text","role":"cluster identifier and unit of random assignment","time":"enrollment","unit":"one of 48 fictional floors"},
+    {"name":"assigned_sleep_program","type":"binary integer 0/1","role":"randomized assignment and primary ITT intervention","time":"time zero","unit":"1 program offer on floor; 0 usual information"},
+    {"name":"baseline_sleep_hours","type":"continuous","role":"pre-assignment descriptive covariate","time":"baseline","unit":"hours per night"},
+    {"name":"baseline_attention_score","type":"continuous","role":"pre-assignment precision covariate","time":"baseline","unit":"attention-score points"},
+    {"name":"used_sleep_plan","type":"binary integer 0/1","role":"post-assignment treatment receipt; not randomized","time":"intervention period","unit":"1 used plan; 0 did not"},
+    {"name":"completed_sleep_diary","type":"binary integer 0/1","role":"post-assignment indicator that secondary sleep follow-up is observed","time":"eight-week follow-up","unit":"1 completed; 0 missing diary"},
+    {"name":"followup_sleep_hours","type":"continuous or blank","role":"secondary outcome subject to post-assignment missingness","time":"eight-week follow-up","unit":"hours per night"},
+    {"name":"followup_attention_score","type":"continuous","role":"complete primary outcome","time":"eight-week follow-up","unit":"attention-score points"}
+  ],
+  "latent_variables_not_in_csv": ["student motivation", "shared residence-floor shock", "individual outcome noise"],
+  "site_or_time_variables": "four fictional sectors; baseline, assignment, intervention period, and eight-week follow-up"
+}

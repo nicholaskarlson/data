@@ -1,0 +1,83 @@
+{
+  "baseline_floor_mean_difference": -0.069802,
+  "dataset_sha256": "bb7193e772ef1669fe6849d06ba95c802305b4d4d2ec97a75683a1763056bdf2",
+  "degrees_of_freedom": {
+    "floor_baseline_adjusted_itt": 42,
+    "floor_blocked_itt": 43,
+    "floor_change_score_itt": 43
+  },
+  "diary_completion_rate_difference": 0.063333,
+  "diary_completion_rates": {
+    "assigned_program": 0.799167,
+    "usual_information": 0.735833
+  },
+  "estimates": {
+    "floor_baseline_adjusted_itt": {
+      "ci95_lower": 2.721238,
+      "ci95_upper": 3.905492,
+      "estimate": 3.313365,
+      "se": 0.293411
+    },
+    "floor_blocked_itt": {
+      "ci95_lower": 1.082469,
+      "ci95_upper": 5.319474,
+      "estimate": 3.200971,
+      "se": 1.050484
+    },
+    "floor_change_score_itt": {
+      "ci95_lower": 2.302233,
+      "ci95_upper": 4.239313,
+      "estimate": 3.270773,
+      "se": 0.480262
+    },
+    "individual_hc1_itt": {
+      "ci95_lower": 2.607032,
+      "ci95_upper": 3.79491,
+      "estimate": 3.200971,
+      "se": 0.30303
+    },
+    "naive_receipt_association": {
+      "ci95_lower": 1.293731,
+      "ci95_upper": 2.264079,
+      "estimate": 1.778905,
+      "se": 0.247538
+    }
+  },
+  "generator_seed": 20260916,
+  "identification_note": "Blocked floor assignment identifies the offer-policy ITT for the synthetic enrolled cohort under consistency, no cross-floor interference, correct assignment, and complete primary-outcome ascertainment.",
+  "individual_to_floor_se_ratio": 0.288467,
+  "interval_method": "Individual-level descriptive rows use HC1 and 1.96. Preferred floor-level analyses use HC1 across 48 randomized floors and two-sided t critical values based on model residual degrees of freedom.",
+  "known_simulation_assignment_effect": 3.0,
+  "n_floors": 48,
+  "n_program_floors": 24,
+  "n_program_students": 1200,
+  "n_students": 2400,
+  "primary_environment": {
+    "numpy": "2.3.5",
+    "python": "3.12.14"
+  },
+  "receipt_rates": {
+    "assigned_program": 0.674167,
+    "usual_information": 0.130833
+  },
+  "sector_floor_counts": {
+    "East": {
+      "program": 6,
+      "usual_information": 6
+    },
+    "North": {
+      "program": 6,
+      "usual_information": 6
+    },
+    "South": {
+      "program": 6,
+      "usual_information": 6
+    },
+    "West": {
+      "program": 6,
+      "usual_information": 6
+    }
+  },
+  "students_per_floor": 50,
+  "title": "Unit 4 deterministic blocked cluster-randomized sleep-program trial"
+}

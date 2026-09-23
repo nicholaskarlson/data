@@ -1,0 +1,88 @@
+{
+  "assignment_counts_by_anxiety": {
+    "high_anxiety_comparison": 640,
+    "high_anxiety_training": 640,
+    "low_anxiety_comparison": 960,
+    "low_anxiety_training": 960
+  },
+  "dataset_filename": "unit8_cognitive_training_trial.csv",
+  "dataset_sha256": "e3fe2638c706856d8157fb92f198746f209bb4cd87d7a54a4f2c78251a124bde",
+  "estimates": {
+    "assignment_by_anxiety_interaction": {
+      "ci95_lower": -2.588776,
+      "ci95_upper": -0.426353,
+      "estimate": -1.507565,
+      "se": 0.551648
+    },
+    "assignment_effect_on_strategy_use": {
+      "ci95_lower": 6.607926,
+      "ci95_upper": 7.494086,
+      "estimate": 7.051006,
+      "se": 0.226065
+    },
+    "baseline_adjusted_standardized_total_effect": {
+      "ci95_lower": 4.516323,
+      "ci95_upper": 5.577391,
+      "estimate": 5.046857,
+      "se": 0.270686
+    },
+    "mediator_conditioned_assignment_contrast": {
+      "ci95_lower": -0.204639,
+      "ci95_upper": 0.800877,
+      "estimate": 0.298119,
+      "se": 0.256514
+    },
+    "strategy_outcome_conditional_association": {
+      "ci95_lower": 0.639229,
+      "ci95_upper": 0.707738,
+      "estimate": 0.673484,
+      "se": 0.017477
+    },
+    "total_effect_high_anxiety": {
+      "ci95_lower": 3.307457,
+      "ci95_upper": 4.97718,
+      "estimate": 4.142318,
+      "se": 0.425958
+    },
+    "total_effect_low_anxiety": {
+      "ci95_lower": 4.96282,
+      "ci95_upper": 6.336946,
+      "estimate": 5.649883,
+      "se": 0.350549
+    },
+    "unadjusted_assignment_itt": {
+      "ci95_lower": 4.270914,
+      "ci95_upper": 5.660332,
+      "estimate": 4.965623,
+      "se": 0.35445
+    }
+  },
+  "generator_seed": 20260929,
+  "group_means": {
+    "mediator_assigned": 46.33781,
+    "mediator_comparison": 39.310749,
+    "outcome_assigned": 71.980487,
+    "outcome_comparison": 67.014864
+  },
+  "high_anxiety_share": 0.4,
+  "identification_note": "Random assignment identifies assignment total effects overall and within the prespecified baseline-anxiety strata. Strategy use is measured after assignment and is not randomized. The mediator-conditioned coefficient is therefore reported as an assumption-dependent descriptive contrast, not an identified controlled or natural direct effect; latent self-regulation causes both strategy use and outcome.",
+  "interval_method": "All intervals use HC1 heteroskedasticity-consistent covariance and the exact standard-normal 0.975 quantile. The adjusted total effect and mediator-conditioned assignment contrast standardize the assignment coefficient over the observed baseline-anxiety distribution.",
+  "known_simulation_average_controlled_direct_effect": 1.9,
+  "known_simulation_average_total_effect": 5.05,
+  "known_simulation_controlled_direct_effect_formula": "2.5 - 1.5 * baseline_high_anxiety",
+  "known_simulation_strategy_mediated_component": 3.15,
+  "known_simulation_total_effect_formula": "5.65 - 1.5 * baseline_high_anxiety",
+  "known_simulation_total_effect_high_anxiety": 4.15,
+  "known_simulation_total_effect_low_anxiety": 5.65,
+  "legacy_product_of_coefficients": 4.748738,
+  "n": 3200,
+  "n_comparison": 1600,
+  "n_high_anxiety": 1280,
+  "n_low_anxiety": 1920,
+  "n_training": 1600,
+  "primary_environment": {
+    "numpy": "2.2.6",
+    "python": "3.10.12"
+  },
+  "title": "Unit 8 deterministic cognitive-training trial"
+}

@@ -1,0 +1,33 @@
+{
+  "disclosure": "Hidden simulator quantities, disclosed for teaching audit only. An analyst working with the reader CSV alone could not compute them.",
+  "title": "Addenda verified in the book's v1.0 revision",
+  "unit10_structural_replay": {
+    "calibrated_gamma_u_at_delta_0_5": -3.830432,
+    "estimate_after_removing_structural_contribution": -4.661611,
+    "hidden_simulation_sample_ate": -4.226561,
+    "note": "The calibrated value reaches the hidden effect by construction. Substituting the generator's own parameters does not, because the gap also contains finite-sample variation and the fitted model's approximation of the generator.",
+    "remaining_discrepancy": -0.43505,
+    "replay_max_abs_difference_from_published_csv": 5e-09,
+    "reported_estimate": -6.141777,
+    "structural_bias_contribution": -1.480166,
+    "structural_delta_u": 0.672803,
+    "structural_gamma_u": -2.2
+  },
+  "unit9_expected_misclassification": {
+    "expected_excess_of_self_report_contrast": 0.03383,
+    "expected_self_report_risk_comparison": 0.34192,
+    "expected_self_report_risk_difference": 0.17883,
+    "expected_self_report_risk_program": 0.52075,
+    "hidden_blinded_risk_difference": 0.145,
+    "note": "The realized contrast lands near the hidden blinded value in this one sample. In expectation the self-report contrast overstates it. One realization does not estimate a repeated-sampling quantity.",
+    "realized_self_report_risk_difference": 0.1475,
+    "sensitivity": {
+      "comparison": 0.82,
+      "program": 0.91
+    },
+    "specificity": {
+      "comparison": 0.9,
+      "program": 0.84
+    }
+  }
+}

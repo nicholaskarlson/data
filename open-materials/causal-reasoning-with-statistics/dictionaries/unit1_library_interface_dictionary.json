@@ -1,0 +1,36 @@
+{
+  "dataset": "unit1_library_interface_ab.csv",
+  "license": "CC BY 4.0",
+  "synthetic": true,
+  "contains_real_participant_data": false,
+  "generator": "scripts/generate_unit1.py",
+  "seed": 20260914,
+  "unit_of_observation": "one fictional eligible student completing one standardized library-search task",
+  "n": 1800,
+  "dataset_sha256": "33127d2292ab8303ab78651ecb6804f47227ee2aef047f55c11b597ad554ebd5",
+  "recruitment": "synthetic illustrative eligible cohort, not sampled from a real student population",
+  "assignment_mechanism": "independent Bernoulli(0.50) assignment to the redesigned or standard interface",
+  "target_estimand": "mean task_score(1) minus task_score(0) in the randomized fictional cohort, where 1 and 0 are the specified redesigned and standard interface assignments",
+  "true_generator_assignment_effect_points": 4.0,
+  "warning": "The hidden simulator effect is not an observed result and is not evidence about students or interfaces outside this fictional protocol.",
+  "structural_equations": {
+    "baseline_search_skill": "50 + 10*N(0,1)",
+    "difficult_task": "Bernoulli(0.45)",
+    "redesigned_interface": "Bernoulli(0.50), independent randomized assignment",
+    "clicks_during_task": "12 - 2*redesigned_interface - 0.08*(baseline_search_skill-50) + 3*difficult_task + N(0,1.5^2)",
+    "task_score_0": "70 + 0.35*(baseline_search_skill-50) - 5*difficult_task + N(0,6^2)",
+    "task_score_1": "task_score_0 + 4",
+    "task_score": "task_score_0 if redesigned_interface=0; task_score_1 if redesigned_interface=1"
+  },
+  "missing_value_code": "none; all six CSV fields are complete",
+  "variables": [
+    {"name":"person_id","type":"integer","role":"synthetic row identifier","time":"enrollment","unit":"unique integer 1-1800"},
+    {"name":"baseline_search_skill","type":"continuous","role":"pre-assignment precision covariate","time":"before interface assignment","unit":"search-skill points"},
+    {"name":"difficult_task","type":"binary integer 0/1","role":"pre-assignment task stratum and precision covariate","time":"before interface assignment","unit":"1 more difficult task; 0 standard task"},
+    {"name":"redesigned_interface","type":"binary integer 0/1","role":"randomized assignment and primary intervention","time":"time zero","unit":"1 redesigned; 0 standard"},
+    {"name":"clicks_during_task","type":"continuous","role":"post-assignment navigation behavior; not a primary adjustment variable","time":"during task","unit":"synthetic click count"},
+    {"name":"task_score","type":"continuous","role":"primary outcome","time":"immediately after task","unit":"rubric points"}
+  ],
+  "latent_variables_not_in_csv": ["shared task-score noise defining both potential scores"],
+  "site_or_time_variables": "single fictional institution and immediate outcome period"
+}

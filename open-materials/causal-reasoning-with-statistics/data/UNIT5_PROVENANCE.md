@@ -1,0 +1,9 @@
+# Unit 5 synthetic-data provenance
+
+`unit5_hypertension_coaching.csv` is an original synthetic teaching file with 3,200 fictional adults eligible for a voluntary hypertension-coaching program at three fictional community clinics. `scripts/generate_unit5.py` uses Python `random.Random(20260917)` and the structural equations summarized in `dictionaries/unit5_hypertension_coaching_dictionary.json`. No real, copied, reconstructed, pseudonymized, or inferred patient record was used.
+
+Participation is not randomized. Measured baseline systolic blood pressure, age, smoking, medication, transport barriers, and clinic affect participation and the follow-up outcome. A latent health-engagement variable also affects participation, prior preventive visits, and follow-up blood pressure. It is intentionally absent from the CSV. The generator's response equation and treatment-effect function test reproducibility; they are not evidence available to an analyst and are not claims about real hypertension care.
+
+The primary analysis estimates the eligible-cohort average contrast under universal versus no participation by outcome-regression standardization and normalized inverse-probability weighting. The propensity model uses only prespecified measured baseline covariates. The standard-library Python and base-R paths independently reconstruct the models, standardized contrasts, sandwich uncertainty, overlap, effective sample sizes, and measured-covariate balance. Prior-year preventive visits are a pre-exposure negative-control outcome. Their adjusted association with later participation is a diagnostic warning, not a causal effect of coaching and not a direct measure of the hidden variable.
+
+All fields are complete. Dataset SHA-256: `35b1d08507d8b534e57868001de89596773ec3874d57c2fd532f1d91cb94b568`.

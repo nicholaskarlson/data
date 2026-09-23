@@ -1,6 +1,6 @@
 PYTHON ?= python3
 
-.PHONY: verify audit audit-volume2 metadata release clean
+.PHONY: verify verify-causal audit audit-volume2 metadata release clean
 
 verify:
 	$(PYTHON) scripts/build_errata.py --check
@@ -9,7 +9,13 @@ verify:
 	$(PYTHON) scripts/check_open_materials_volume2.py
 	$(PYTHON) scripts/verify_resource_numbers.py
 	$(PYTHON) scripts/verify_volume2_numbers.py
+	$(PYTHON) scripts/check_causal_reasoning_companion.py
 	@echo "NEKPRESS_JAMOVI_COMPANION_RELEASE_OK"
+
+verify-causal:
+	$(PYTHON) scripts/check_causal_reasoning_companion.py
+	cd open-materials/causal-reasoning-with-statistics && $(PYTHON) run_all.py
+	cd open-materials/causal-reasoning-with-statistics && Rscript run_all.R
 
 audit:
 	$(PYTHON) scripts/verify_resource_numbers.py

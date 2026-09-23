@@ -1,0 +1,37 @@
+{
+  "dataset": "unit7_tutoring_cutoff.csv",
+  "license": "CC BY 4.0",
+  "synthetic": true,
+  "contains_real_participant_data": false,
+  "generator": "scripts/generate_unit7.py",
+  "seed": 20260920,
+  "unit_of_observation": "one fictional tutoring applicant",
+  "unit_of_assignment": "none; eligibility changes deterministically at the diagnostic-score cutoff",
+  "n": 2600,
+  "dataset_sha256": "f1c355714cae927978aeea95641fb7e3d96efa4b1b57f30d27522d7418c87a35",
+  "exposure_mechanism": "applicants with diagnostic_score below 60 are eligible for the tutoring offer; applicants at or above 60 are not eligible",
+  "target_estimand": "local average effect of tutoring eligibility on end-term mathematics score for applicants at the diagnostic-score cutoff of 60",
+  "warning": "This simulation is not a validated model of tutoring or student performance. The cutoff rule is deterministic, not randomized, and an RD interpretation requires continuity and no precise manipulation near the cutoff.",
+  "causal_structure": [
+    "diagnostic score determines tutoring eligibility at a cutoff of 60",
+    "smooth functions of diagnostic score affect baseline GPA and the untreated outcome",
+    "tutoring eligibility adds a discontinuity of 4.2 outcome points",
+    "independent baseline and outcome noise create sampling variation"
+  ],
+  "structural_equations": {
+    "tutoring_eligible": "1 when diagnostic_score < 60; 0 otherwise",
+    "baseline_gpa": "2.75 + 0.025*(diagnostic_score-60) + independent noise",
+    "end_term_math_score": "smooth quadratic score function + 1.7*(baseline_gpa-2.75) + 4.2*tutoring_eligible + independent noise"
+  },
+  "missing_value_code": "none; all six fields are complete",
+  "variables": [
+    {"name":"applicant_id","type":"nominal text","role":"synthetic applicant identifier","time":"before eligibility determination","unit":"unique RD0001-RD2600"},
+    {"name":"diagnostic_score","type":"continuous","role":"running variable determining tutoring eligibility","time":"before tutoring","unit":"score points"},
+    {"name":"centered_score","type":"continuous","role":"diagnostic score centered at the cutoff","time":"before tutoring","unit":"diagnostic_score minus 60"},
+    {"name":"tutoring_eligible","type":"binary integer 0/1","role":"sharp cutoff intervention indicator","time":"determined after diagnostic testing and before tutoring","unit":"1 eligible below 60; 0 not eligible at or above 60"},
+    {"name":"baseline_gpa","type":"continuous","role":"pre-intervention covariate used for a continuity diagnostic","time":"before diagnostic testing and tutoring","unit":"grade-point average"},
+    {"name":"end_term_math_score","type":"continuous","role":"primary outcome","time":"end of term after tutoring eligibility","unit":"score points"}
+  ],
+  "latent_variables_not_in_csv": ["independent baseline-GPA noise", "independent end-term outcome noise"],
+  "site_or_time_variables": "single fictional tutoring program and one end-of-term outcome"
+}

@@ -1,0 +1,111 @@
+{
+  "cross_case_rule": "Triangulation compares evidence with meaningfully different bias structures and compatible questions; it does not average unlike estimands or relabel repeated specifications as replication.",
+  "hidden_calibration": {
+    "gamma_u_at_delta_0_5_to_reach_hidden_truth": -3.830432,
+    "gamma_u_at_delta_0_5_to_reach_null": -12.283554,
+    "reported_minus_hidden_truth": -1.915216
+  },
+  "interpretation_note": "Sensitivity intervals are algebraic shifts conditional on fixed delta_u and gamma_u; they do not include uncertainty about those parameters. Precision calculations use a normal approximation and assumed ICC values and omit cluster degrees of freedom, attrition, unequal cluster sizes, covariate-adjustment gains, and uncertainty in planning inputs.",
+  "precision_design": {
+    "equal_allocation": true,
+    "formula": "MDE = 2 * (z_975 + z_80) * SD / sqrt(J*m/[1+(m-1)*ICC])",
+    "outcome_scale": "follow-up systolic blood pressure in mmHg",
+    "participants_per_cluster": 50,
+    "planned_total_clusters": 48,
+    "planning_sd": 7.1,
+    "power": 0.8,
+    "target_mde": 1.5,
+    "two_sided_alpha": 0.05,
+    "z_80": 0.841621234,
+    "z_975": 1.959963985
+  },
+  "precision_scenarios": {
+    "0.00": {
+      "assumed_icc": 0.0,
+      "design_effect": 1.0,
+      "effective_sample_size_at_48_clusters": 2400.0,
+      "mde_at_48_clusters": 0.812057,
+      "required_even_clusters_for_mde_at_most_1_5": 16
+    },
+    "0.05": {
+      "assumed_icc": 0.05,
+      "design_effect": 3.45,
+      "effective_sample_size_at_48_clusters": 695.652174,
+      "mde_at_48_clusters": 1.508329,
+      "required_even_clusters_for_mde_at_most_1_5": 50
+    },
+    "0.10": {
+      "assumed_icc": 0.1,
+      "design_effect": 5.9,
+      "effective_sample_size_at_48_clusters": 406.779661,
+      "mde_at_48_clusters": 1.97248,
+      "required_even_clusters_for_mde_at_most_1_5": 84
+    },
+    "0.20": {
+      "assumed_icc": 0.2,
+      "design_effect": 10.8,
+      "effective_sample_size_at_48_clusters": 222.222222,
+      "mde_at_48_clusters": 2.668692,
+      "required_even_clusters_for_mde_at_most_1_5": 152
+    }
+  },
+  "primary_environment": {
+    "numpy": "2.3.5",
+    "python": "3.12.14"
+  },
+  "reproducibility_ladder": [
+    "rerun the same code and data",
+    "recompute with independent Python and base R",
+    "regenerate deterministic data and verify checksums",
+    "directly replicate in a new sample",
+    "conceptually replicate with a different design and bias structure"
+  ],
+  "sensitivity_input": {
+    "ci95_lower": -6.667566,
+    "ci95_upper": -5.615987,
+    "estimate": -6.141777,
+    "hidden_simulation_sample_ate": -4.226561,
+    "negative_control_association": 0.309462,
+    "se": 0.26826
+  },
+  "sensitivity_model": "bias = delta_u * gamma_u; adjusted estimate = reported estimate - bias",
+  "sensitivity_scenarios": {
+    "-2.0": {
+      "assumed_omitted_confounding_bias": -1.0,
+      "delta_u": 0.5,
+      "gamma_u": -2.0,
+      "sensitivity_adjusted_estimate": -5.141777,
+      "shifted_ci95_lower": -5.667566,
+      "shifted_ci95_upper": -4.615987
+    },
+    "-3.0": {
+      "assumed_omitted_confounding_bias": -1.5,
+      "delta_u": 0.5,
+      "gamma_u": -3.0,
+      "sensitivity_adjusted_estimate": -4.641777,
+      "shifted_ci95_lower": -5.167566,
+      "shifted_ci95_upper": -4.115987
+    },
+    "-6.0": {
+      "assumed_omitted_confounding_bias": -3.0,
+      "delta_u": 0.5,
+      "gamma_u": -6.0,
+      "sensitivity_adjusted_estimate": -3.141777,
+      "shifted_ci95_lower": -3.667566,
+      "shifted_ci95_upper": -2.615987
+    },
+    "0.0": {
+      "assumed_omitted_confounding_bias": 0.0,
+      "delta_u": 0.5,
+      "gamma_u": 0.0,
+      "sensitivity_adjusted_estimate": -6.141777,
+      "shifted_ci95_lower": -6.667566,
+      "shifted_ci95_upper": -5.615987
+    }
+  },
+  "source_unit5_dataset": "unit5_hypertension_coaching.csv",
+  "source_unit5_dataset_sha256": "35b1d08507d8b534e57868001de89596773ec3874d57c2fd532f1d91cb94b568",
+  "source_unit5_result_canonical_sha256": "b9d7883fff2b8c1cd3c62fc23f6e81f3e66e0e333cf7b83d307d274271346bd4",
+  "source_unit5_result_sha256": "87f688c1e86e5663c3b43360c3ad78e1ce0f82d2f12adb0fe3582d04f54b491c",
+  "title": "Unit 10 cross-case sensitivity and precision synthesis"
+}

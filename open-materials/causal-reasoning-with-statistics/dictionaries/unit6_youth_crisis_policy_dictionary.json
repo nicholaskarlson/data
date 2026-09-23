@@ -1,0 +1,41 @@
+{
+  "dataset": "unit6_youth_crisis_policy.csv",
+  "license": "CC BY 4.0",
+  "synthetic": true,
+  "contains_real_participant_data": false,
+  "generator": "scripts/generate_unit6.py",
+  "seed": 20260919,
+  "unit_of_observation": "one fictional municipality-month",
+  "unit_of_assignment": "none; early adoption is a phased policy decision and is not randomized",
+  "n": 864,
+  "dataset_sha256": "0ebc5b2349030515802f4b287f3acd175298f1b7884d8d4e18a836b297990089",
+  "exposure_mechanism": "12 municipalities adopt a mobile youth-crisis response policy at month 19; 12 municipalities remain not-yet adopters during the 36-month study window",
+  "target_estimand": "average effect of the mobile youth-crisis response policy among the 12 early-adopter municipalities during months 19-36, compared with their counterfactual outcomes without the policy",
+  "warning": "This simulation is not a validated model of youth crisis services. Early adoption is not randomized, pre-period diagnostics cannot prove parallel trends, and the same-month regional hotline contaminates a treated-only interrupted time-series interpretation.",
+  "causal_structure": [
+    "municipality attributes affect early adoption and outcome levels",
+    "calendar month affects all municipalities through common trend and seasonality",
+    "a region-wide hotline begins for every municipality at month 19",
+    "the mobile response policy begins only in early-adopter municipalities at month 19",
+    "municipality-specific serially correlated shocks affect monthly outcomes"
+  ],
+  "structural_equations": {
+    "early_adopter": "fixed fictional phased-adoption indicator with three early and three not-yet adopters per region",
+    "regional_hotline_active": "1 from month 19 onward in every municipality; 0 before month 19",
+    "policy_active": "early_adopter multiplied by regional_hotline_active",
+    "youth_emergency_transports_per_10000": "municipality level + common trend + seasonal terms + region term - 1.05*regional_hotline_active - 1.70*policy_active + AR(1) municipality shock"
+  },
+  "missing_value_code": "none; all eight fields are complete",
+  "variables": [
+    {"name":"municipality_id","type":"nominal text","role":"synthetic municipality identifier and clustering unit","time":"time invariant","unit":"unique M01-M24"},
+    {"name":"region","type":"nominal text","role":"fictional regional context used to balance adoption groups in the generator","time":"time invariant","unit":"North, East, South, or West"},
+    {"name":"month_index","type":"integer","role":"calendar-time index and month fixed-effect identifier","time":"monthly","unit":"1-36"},
+    {"name":"relative_month","type":"integer","role":"time relative to policy and hotline start","time":"monthly","unit":"month_index minus 19; 0 is the first intervention month"},
+    {"name":"early_adopter","type":"binary integer 0/1","role":"nonrandom phased-adoption group indicator","time":"fixed before the observation window","unit":"1 early adopter; 0 not-yet adopter"},
+    {"name":"regional_hotline_active","type":"binary integer 0/1","role":"same-month region-wide co-intervention indicator","time":"months 19-36","unit":"1 active; 0 inactive"},
+    {"name":"policy_active","type":"binary integer 0/1","role":"mobile youth-crisis response policy exposure used in the primary DiD","time":"months 19-36 for early adopters","unit":"1 active; 0 inactive"},
+    {"name":"youth_emergency_transports_per_10000","type":"continuous","role":"primary municipality-month outcome","time":"monthly","unit":"youth emergency transports per 10,000 residents"}
+  ],
+  "latent_variables_not_in_csv": ["municipality outcome level", "serially correlated municipality-month shock"],
+  "site_or_time_variables": "24 fictional municipalities in four fictional regions observed for 36 complete months"
+}
