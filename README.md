@@ -45,10 +45,28 @@ Rscript run_all.R       # the third path, in base R
 ```
 
 Both run without writing to the directory, so the checksums stay valid afterwards.
-`make verify-causal` runs the same checks from the repository root. The companion is
-computational material only: the manuscript, its figures and its build system are not part
-of this export. See that directory's `README.md` for what each stage proves and
-`SOURCE.json` for the authoring commit it was exported from.
+`make verify-causal` runs the same checks from the repository root. See that directory's
+`README.md` for what each stage proves and `SOURCE.json` for the authoring commit it was
+exported from.
+
+### Read the book
+
+The book itself is free, in this directory, under a CC BY 4.0 licence:
+
+- [PDF for reading and printing](causal-reasoning-with-statistics-open-resource-v1.0.pdf)
+- [Editable DOCX for adaptation](causal-reasoning-with-statistics-open-resource-v1.0.docx)
+
+Archived on Zenodo with a citable DOI:
+
+- Version DOI: [10.5281/zenodo.22965577](https://doi.org/10.5281/zenodo.22965577)
+- All versions: [10.5281/zenodo.22965575](https://doi.org/10.5281/zenodo.22965575)
+
+> Karlson, N. E. (2026). *Causal Reasoning with Statistics: Design, Identification, and
+> Reproducible Evidence in Psychology and the Social Sciences* (Version 1.0). Zenodo.
+> https://doi.org/10.5281/zenodo.22965577
+
+Paperback and Kindle editions are published in the NEKpress Research: Proof-First Guides
+series. The content is the same; buying one supports the work rather than unlocking it.
 
 ## Software Scope
 
